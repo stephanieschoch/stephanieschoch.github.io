@@ -2,7 +2,7 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: # the website title (if blank, full name will be used instead)
+title: blank # the website title (if blank, full name will be used instead)
 first_name: Stephanie
 middle_name: 
 last_name: Schoch
@@ -205,10 +205,10 @@ jekyll-archives:
 
 scholar:
 
-  last_name: Einstein
-  first_name: [Albert, A.]
+  last_name: Schoch
+  first_name: [Stephanie]
 
-  style: apa
+  style: association-for-computational-linguistics
   locale: en
 
   source: /_bibliography/
