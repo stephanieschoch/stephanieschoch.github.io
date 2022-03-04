@@ -29,7 +29,7 @@ Prior to starting my PhD at UVA, I completed my undergraduate coursework at St. 
 
 <h2> Teaching </h2>
 <ul>
-  <li> CS 6501 Machine Learning TA, Spring 2022 (Graduate, UVA) </li>
+  <li> CS 6316 Machine Learning TA, Spring 2022 (Graduate, UVA) </li>
   <li> CS 4501 Foundations of Data Analysis TA, Spring 2021 (Undergraduate, UVA) </li>
   <li> CS 4501 Machine Learning TA, Fall 2020 (Undergraduate, UVA) </li>
   <li> CS 230 Computer Architecture TA, Fall 2018 (Undergraduate, SMCM) </li>
