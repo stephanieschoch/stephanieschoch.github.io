@@ -70,8 +70,8 @@ wikidata_id: # your wikidata id
 dblp_url: # your DBLP profile url
 stackoverflow_id: #your stackoverflow id
 
-contact_note: > blank
-  # Email: sns2gr (at) virginia (dot) edu
+contact_note: >
+  sns2gr (at) virginia (dot) edu
 
 google_analytics:  # your google-analytics ID (format: UA-XXXXXXXXX)
 google_site_verification:  # your google-site-verification ID (Google Search Console)
