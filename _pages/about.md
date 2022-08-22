@@ -17,7 +17,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am a third-year Computer Science PhD candidate at the <a href="https://engineering.virginia.edu/departments/computer-science">University of Virginia</a> advised by <a href="http://yangfengji.net/">Dr. Yangfeng Ji</a> in the <a href="https://uvanlp.org/">Information and Language Processing (ILP) Lab</a>. My research interests lie in natural language generation and evaluation, as well as data quality analysis and data selection strategies.
+I am a Computer Science PhD candidate at the <a href="https://engineering.virginia.edu/departments/computer-science">University of Virginia</a> advised by <a href="http://yangfengji.net/">Dr. Yangfeng Ji</a> in the <a href="https://uvanlp.org/">Information and Language Processing (ILP) Lab</a>. My research interests lie in data quality analysis and selection for natural language data.
 
 Prior to starting my PhD at UVA, I completed my undergraduate coursework at St. Mary’s College of Maryland, where I graduated Summa Cum Laude with a double major in Computer Science and Psychology.
 
@@ -29,7 +29,7 @@ Prior to starting my PhD at UVA, I completed my undergraduate coursework at St. 
 
 <h2> Teaching </h2>
 <ul>
-  <li> CS 6316 Machine Learning TA, Spring 2022 (Graduate, UVA) </li>
+  <li> CS 6316 Machine Learning Head TA, Spring 2022 (Graduate, UVA) </li>
   <li> CS 4501 Foundations of Data Analysis TA, Spring 2021 (Undergraduate, UVA) </li>
   <li> CS 4501 Machine Learning TA, Fall 2020 (Undergraduate, UVA) </li>
   <li> CS 230 Computer Architecture TA, Fall 2018 (Undergraduate, SMCM) </li>
@@ -43,8 +43,8 @@ Prior to starting my PhD at UVA, I completed my undergraduate coursework at St. 
 
 <h2> Service </h2>
 <ul>
-  <li> <b> Program Committee:</b> LREC 2022 </li>
-  <li> <b> Reviewer:</b> NLPCC 2021 </li>
+  <li> <b> Program Committee:</b> AAAI 2023, NLPCC 2022, LREC 2022 </li>
+  <li> <b> Reviewer:</b> EMNLP 2022, NLPCC 2021 </li>
 </ul>
 
 <h2> Selected Awards/Honors </h2>
