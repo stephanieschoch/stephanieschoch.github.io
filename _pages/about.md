@@ -50,6 +50,7 @@ Prior to starting my PhD at UVA, I completed my undergraduate coursework at St. 
 
 <h2> Selected Awards/Honors </h2>
 <ul>
+  <li> Best Poster (Session 1) - UVA Computer Science Graduate Student Group 2022 Research Symposium (October 2022) </li>
   <li> CRA-WP Grad Cohort for Women Travel Funding (April 2020) </li>
   <li> UVA Computer Science Fellowship (2019-2020) </li>
   <li> AnitaB Grace Hopper Celebration (GHC) Scholar (October 2019) </li>
