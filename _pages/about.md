@@ -17,7 +17,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am a Computer Science PhD candidate at the <a href="https://engineering.virginia.edu/departments/computer-science">University of Virginia</a> advised by <a href="http://yangfengji.net/">Dr. Yangfeng Ji</a> in the <a href="https://uvanlp.org/">Information and Language Processing (ILP) Lab</a>. My research interests lie in data quality analysis and selection for natural language data.
+I am a Computer Science PhD candidate at the <a href="https://engineering.virginia.edu/departments/computer-science">University of Virginia</a> advised by <a href="http://yangfengji.net/">Dr. Yangfeng Ji</a> in the <a href="https://uvanlp.org/">Information and Language Processing (ILP) Lab</a>. My research interests lie in data quality analysis and selection, with a particular interest in natural language data.
 
 Prior to starting my PhD at UVA, I completed my undergraduate coursework at St. Mary’s College of Maryland, where I graduated Summa Cum Laude with a double major in Computer Science and Psychology.
 
@@ -50,6 +50,7 @@ Prior to starting my PhD at UVA, I completed my undergraduate coursework at St. 
 
 <h2> Selected Awards/Honors </h2>
 <ul>
+  <li> NeurIPS 2022 Scholar Award (October 2022) </li>
   <li> Best Poster (Session 1) - UVA Computer Science Graduate Student Group 2022 Research Symposium (October 2022) </li>
   <li> CRA-WP Grad Cohort for Women Travel Funding (April 2020) </li>
   <li> UVA Computer Science Fellowship (2019-2020) </li>
