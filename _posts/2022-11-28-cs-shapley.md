@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  CS-Shapley: Class-wise Shapley Values for Data Valuation in Classification
+title:  CS-Shapley &#58; Class-wise Shapley Values for Data Valuation in Classification
 date: 2015-05-15 21:01:00
 description: A blog post about the NeurIPS 2022 paper "CS-Shapley: Class-wise Shapley Values for Data Valuation in Classification"
 tags: data-valuation
