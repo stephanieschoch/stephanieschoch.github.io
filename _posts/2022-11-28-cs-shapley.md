@@ -16,7 +16,7 @@ The prudent question to ask then becomes one of how to measure this contribution
 Shapley values (Shapley, 1953) have been proposed for use in this context and have proven to be effective for measuring data contributions, and the associated applications. Shapley values, from cooperative game theory, satisfy desirable fairness guarantees due to their underlying axiomatic basis. For a value function $v(·)$, the Shapley value $\phi i(T, A, v)$, for any data point $i$ is defined as:
 
 $$
-\phi_i(T, \mathcal{A}, v)= \sum\limits_{S \subseteq T\textbackslash\{i\}} \frac{v(S\cup\{i\})-v(S)}{\binom{n-1}{\mid S \mid}}
+\phi_i(T, \mathcal{A}, v)= \sum\limits_{S \subseteq T\setminus\{i\}} \frac{v(S\cup\{i\})-v(S)}{\binom{n-1}{\mid S \mid}}
 $$
 
 In simple terms, the Shapley value of a data point measures its average marginal contribution to every possible data subset.
