@@ -27,7 +27,7 @@ Much of the work in applying Shapley values to data contribution measurement, or
 ## Intuition:
 What the existing methods have in common, is how the value function underlying Shapley computation is defined. More specifically, the value function is defined over the entire development set (in practice, development accuracy). In this work, we challenge the implicit assumption that full development set metrics are ideal for Shapley computation on classification datasets. Our intuition was that defining the value function in this manner may have limited ability to differentiate helpful or harmful training instances. We provide an example in Figure 1 below.
 
-{% include cs-shapley-fig-1.html path="assets/img/cs-shapley-fig-1.png" class="img-fluid rounded z-depth-1" %}
+<img src="https://github.com/stephanieschoch/stephanieschoch.github.io/blob/master/assets/img/cs-shapley-fig-1.png" alt="Figure 1">
 
 While we provide more details in the paper, in short, this example shows two training points from the real world CIFAR10 datasets that belong to the same class, cause the same overall development accuracy change, yet data point I increases in class accuracy while data point j decreases in-class accuracy. Intuitively, data points that harm their own classes may be mislabeled or otherwise noisy.	
 
@@ -35,7 +35,7 @@ While we provide more details in the paper, in short, this example shows two tra
 
 To address this, we define a value function that uses in-class accuracy as a measure of contribution and out-of-class accuracy as a weighting, or discounting, factor. While we demonstrate several desirable properties of this function in the paper, we can illustrate this function in the following contour plot:
 
-{% include cs-shapley-contour.html path="assets/img/fig-cd-contour.png" class="img-fluid rounded z-depth-1" %}
+<img src="https://github.com/stephanieschoch/stephanieschoch.github.io/blob/master/assets/img/fig-cd-contourplot.png" alt="Contour Plot">
 
 The effect of the out-of-class accuracy is controlled by the value of the in-class accuracy. In other words, when the in-class accuracy is low, the out-of-class accuracy can essentially be ignored. Conversely , when the in-class accuracy is high, the out-of-class accuracy can have a substantial effect on the valuation of an in-class data point.
 
