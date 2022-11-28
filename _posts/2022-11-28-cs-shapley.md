@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  CS-Shapley &#58; Class-wise Shapley Values for Data Valuation in Classification
-date: 2022-11-28 20:00:00
+date: 2022-11-28 12:00:00
 description: A blog post about the NeurIPS 2022 paper "CS-Shapley &#58; Class-wise Shapley Values for Data Valuation in Classification"
 tags: data-valuation
 categories: blog-posts
