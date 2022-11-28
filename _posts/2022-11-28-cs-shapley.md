@@ -27,14 +27,7 @@ Much of the work in applying Shapley values to data contribution measurement, or
 ## Intuition:
 What the existing methods have in common, is how the value function underlying Shapley computation is defined. More specifically, the value function is defined over the entire development set (in practice, development accuracy). In this work, we challenge the implicit assumption that full development set metrics are ideal for Shapley computation on classification datasets. Our intuition was that defining the value function in this manner may have limited ability to differentiate helpful or harmful training instances. We provide an example in Figure 1 below.
 
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/cs-shapley-fig-1.png" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Figure of CIFAR10 dataset example of different types of contributions.
-</div>
+![](/assets/img/cs-shapley-fig-1.png)
 
 While we provide more details in the paper, in short, this example shows two training points from the real world CIFAR10 datasets that belong to the same class, cause the same overall development accuracy change, yet data point I increases in class accuracy while data point j decreases in-class accuracy. Intuitively, data points that harm their own classes may be mislabeled or otherwise noisy.	
 
@@ -48,18 +41,11 @@ $$v_{y_i}(S_{y_i}|S_{-y_i}) = a_S(D_{y_i})\cdot e^{a_S(D_{-y_i})}$$
 
 where $$a_S(D_{y_i})$$ indicates in-class accuracy and $$a_S(D_{-y_i})$$ indicates out-of-class accuracy. With this, we can then define the **CS-Shapley value** of a data point $$i$$ as
 
-$$\phi_i|S_{-y_i} = % \frac{1}{n} \sum_{S_{y_i} \subseteq T_{y_i} \setminus \{i\}} \frac{v_{y_i}(S_{y_i}\cup\{i\}| S_{-y_i})-v_{y_i}(S_{y_i}| S_{-y_i})}{\binom{n-1}{\mid S_{y_i} \mid}}$$
+$$\phi_i|S_{-y_i} = \sum_{S_{y_i} \subseteq T_{y_i} \setminus \{i\}} \frac{v_{y_i}(S_{y_i}\cup\{i\}| S_{-y_i})-v_{y_i}(S_{y_i}| S_{-y_i})}{\binom{n-1}{\mid S_{y_i} \mid}}$$
 
 While we demonstrate several desirable properties of this function in the paper, we can illustrate this function in the following contour plot:
 
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include cs-shapley-contour.html path="assets/img/fig-cd-countourplot.png" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Contour plot of new value function.
-</div>
+![](/assets/img/fig-cd-contourplot.png)
 
 The effect of the out-of-class accuracy is controlled by the value of the in-class accuracy. In other words, when the in-class accuracy is low, the out-of-class accuracy can essentially be ignored. Conversely , when the in-class accuracy is high, the out-of-class accuracy can have a substantial effect on the valuation of an in-class data point.
 
