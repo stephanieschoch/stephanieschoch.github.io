@@ -38,14 +38,15 @@ Prior to starting my PhD at UVA, I completed my undergraduate coursework at St. 
 
 <h2> Talks </h2>
 <ul>
+  <li> Invited Panelist, (CAPWIC 2023 Graduate School Panel, August 2023) </li>
   <li> Guest Lecture: "Introduction to Text Generation", (UVA CS 6501 NLP, April 2021; UVA CS 4501 ML4NLP, December 2021 & December 2020) </li>
   <li> Invited Panelist, (Georgetown University GuWeCode Graduate School Panel, October 2020) </li>
 </ul>
 
 <h2> Service </h2>
 <ul>
-  <li> <b> Program Committee:</b> AAAI 2023, NLPCC 2022, LREC 2022 </li>
-  <li> <b> Reviewer:</b> EMNLP 2022, NLPCC 2021 </li>
+  <li> <b> Program Committee:</b> AAAI 2023/2024, NLPCC 2022/2023, LREC 2022/2023 </li>
+  <li> <b> Reviewer:</b> EMNLP 2022/2023, NLPCC 2021 </li>
 </ul>
 
 <h2> Selected Awards/Honors </h2>
