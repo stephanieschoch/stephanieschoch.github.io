@@ -1,7 +1,7 @@
 ---
 layout: post
-date: 2023-08-01 
+date: 2023-06-08 
 inline: true
 ---
 
-Our tutorial “Data Contribution Estimation for Machine Learning” was accepted for NeurIPS 2023.
+One paper accepted to ACL SRW 2023.
