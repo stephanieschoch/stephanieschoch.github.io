@@ -29,6 +29,7 @@ Prior to starting my PhD at UVA, I completed my undergraduate coursework at St. 
 
 <h2> Teaching </h2>
 <ul>
+  <li> CS 4501 Artificial Intelligence, Co-Instructor, Spring 2024 (Undergraduate, UVA) </li>
   <li> CS 8501 Advanced Topics in Machine Learning, TA, Fall 2022 (Graduate, UVA) </li>
   <li> CS 6316 Machine Learning, Head TA, Spring 2022 (Graduate, UVA) </li>
   <li> CS 4501 Foundations of Data Analysis, TA, Spring 2021 (Undergraduate, UVA) </li>
@@ -38,6 +39,7 @@ Prior to starting my PhD at UVA, I completed my undergraduate coursework at St. 
 
 <h2> Talks </h2>
 <ul>
+  <li> Invited Talk (UVA Artificial Intelligence and Machine Learning (AIML) seminar, November 2023)</li>
   <li> Invited Panelist, (CAPWIC 2023 Graduate School Panel, August 2023) </li>
   <li> Guest Lecture: "Introduction to Text Generation", (UVA CS 6501 NLP, April 2021; UVA CS 4501 ML4NLP, December 2021 & December 2020) </li>
   <li> Invited Panelist, (Georgetown University GuWeCode Graduate School Panel, October 2020) </li>
@@ -51,6 +53,7 @@ Prior to starting my PhD at UVA, I completed my undergraduate coursework at St. 
 
 <h2> Selected Awards/Honors </h2>
 <ul>
+  <li> UVA Engineering Teaching Fellowship (November 2023) </li>
   <li> NeurIPS 2022 Scholar Award (October 2022) </li>
   <li> Best Poster (Session 1) - UVA Computer Science Graduate Student Group 2022 Research Symposium (October 2022) </li>
   <li> CRA-WP Grad Cohort for Women Travel Funding (April 2020) </li>
