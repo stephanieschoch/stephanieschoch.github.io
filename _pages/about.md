@@ -45,6 +45,11 @@ Prior to starting my PhD at UVA, I completed my undergraduate coursework at St. 
   <li> Invited Panelist, (Georgetown University GuWeCode Graduate School Panel, October 2020) </li>
 </ul>
 
+<h2> Tutorials </h2>
+<ul>
+  <li> Data Contribution Estimation for Machine Learning (NeurIPS 2023)</li>
+</ul>
+
 <h2> Service </h2>
 <ul>
   <li> <b> Program Committee:</b> AAAI 2023/2024, NLPCC 2022/2023, LREC 2022/2023 </li>
