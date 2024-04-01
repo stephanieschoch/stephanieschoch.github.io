@@ -53,7 +53,7 @@ Prior to starting my PhD at UVA, I completed my undergraduate coursework at St. 
 <h2> Service </h2>
 <ul>
   <li> <b> Program Committee:</b> AAAI 2023/2024, NLPCC 2022/2023, LREC 2022/2023 </li>
-  <li> <b> Reviewer:</b> ARR 2024, EMNLP 2022/2023, NLPCC 2021 </li>
+  <li> <b> Reviewer:</b> ARR (ongoing), EMNLP 2022/2023, NLPCC 2021 </li>
 </ul>
 
 <h2> Selected Awards/Honors </h2>
