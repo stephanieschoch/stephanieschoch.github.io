@@ -1,0 +1,40 @@
+export interface Collaborator {
+  name: string;
+  url?: string;
+}
+
+export interface Course {
+  name: string;
+  institution: string;
+  semester: string;
+  role: string;
+  collaborators?: Collaborator[];
+  link?: string;
+}
+
+export interface Tutorial {
+  name: string;
+  venue: string;
+  collaborators: string;
+  link?: string;
+  slidesLink?: string;
+}
+
+export const courses: Course[] = [
+  {
+    name: "CS 4710: Artificial Intelligence",
+    institution: "University of Virginia",
+    semester: "Spring 2024",
+    role: "Co-Instructor",
+    collaborators: [{ name: "Yangfeng Ji", url: "https://yangfengji.net/" }],
+  },
+];
+
+export const tutorials: Tutorial[] = [
+  {
+    name: "Data Contribution Estimation for Machine Learning",
+    venue: "NeurIPS 2023",
+    collaborators: "Stephanie Schoch, Ruoxi Jia, Yangfeng Ji",
+    link: "https://neurips.cc/virtual/2023/73959",
+  },
+];
