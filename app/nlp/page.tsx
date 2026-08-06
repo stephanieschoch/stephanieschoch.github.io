@@ -10,7 +10,9 @@ export default function NLPPage() {
     <div>
       {/* Course Title */}
       <div className="text-center mb-6">
-        <h1 className="text-2xl font-bold mb-1">{courseInfo.title}</h1>
+        <h1 className="text-2xl font-bold mb-1">
+          {courseInfo.number}: {courseInfo.title}
+        </h1>
         <p className="text-text-light">
           {courseInfo.institution} &middot; {courseInfo.semester}
         </p>

@@ -5,6 +5,14 @@ export interface Update {
 
 export const updates: Update[] = [
   {
+    date: "08/2026",
+    text: "Starting as an Assistant Professor at William &amp; Mary.",
+  },
+  {
+    date: "06/2026",
+    text: "Defended my dissertation!",
+  },
+  {
     date: "08/2025",
     text: "One paper accepted to EMNLP 2025.",
   },

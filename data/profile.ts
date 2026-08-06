@@ -1,11 +1,11 @@
 export const profile = {
   name: "Stephanie Schoch",
-  title: "Final Year PhD Candidate",
+  title: "Assistant Professor",
   department: "Department of Computer Science",
-  institution: "University of Virginia",
-  email: "sns2gr(at)virginia(dot)edu",
+  institution: "William & Mary",
+  email: "sschoch(at)wm(dot)edu",
   about: [
-    'I am a final year PhD candidate in the Department of Computer Science at the University of Virginia, advised by <a href="https://yangfengji.net/" target="_blank" rel="noopener noreferrer">Dr. Yangfeng Ji</a>. My research lies at the intersection of natural language processing (NLP) and machine learning, with an emphasis on large language models (LLMs).',
+    '<strong>I am joining the Department of Computer Science at William &amp; Mary in Fall 2026.</strong> I completed my PhD at the University of Virginia, advised by <a href="https://yangfengji.net/" target="_blank" rel="noopener noreferrer">Dr. Yangfeng Ji</a>. My research lies at the intersection of natural language processing (NLP) and machine learning, with an emphasis on large language models (LLMs).',
     "Broadly, I am interested in making NLP systems more reliable, performant, and explainable. My work takes a data-centric perspective, investigating how the quality, structure, and selection of data shapes model behavior and performance. I am especially interested in understanding why models succeed or fail, identifying and mitigating harmful sensitivities and shortcuts, and developing ways to evaluate and improve LLMs to better reflect human needs and judgments.",
     "Prior to starting my PhD at UVA, I completed my undergraduate studies at St. Mary's College of Maryland, graduating summa cum laude with a double major in Computer Science and Psychology.",
   ],
