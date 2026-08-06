@@ -4,21 +4,49 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/publications", label: "Publications" },
-  { href: "/teaching", label: "Teaching" },
-];
+interface NavLink {
+  href: string;
+  label: string;
+}
 
-export default function Header() {
+interface CourseHeaderProps {
+  courseName: string;
+  basePath: string;
+  navLinks: NavLink[];
+}
+
+export default function CourseHeader({ courseName, basePath, navLinks }: CourseHeaderProps) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const isActive = (href: string) => {
+    if (href.includes("#")) return false;
+    return pathname === href;
+  };
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    const hashIndex = href.indexOf("#");
+    if (hashIndex !== -1) {
+      const basePage = href.substring(0, hashIndex) || pathname;
+      const hash = href.substring(hashIndex + 1);
+      if (basePage === pathname) {
+        e.preventDefault();
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    } else if (href === pathname) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   return (
     <header className="bg-[#f0f0f0] sticky top-0 z-50">
       <nav className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold text-text hover:text-accent no-underline">
-          Stephanie Schoch
+        <Link href={basePath} onClick={(e) => handleClick(e, basePath)} className="text-xl font-bold text-text hover:text-accent no-underline">
+          {courseName}
         </Link>
 
         {/* Mobile menu button */}
@@ -42,8 +70,9 @@ export default function Header() {
             <li key={link.href}>
               <Link
                 href={link.href}
+                onClick={(e) => handleClick(e, link.href)}
                 className={`no-underline transition-colors ${
-                  pathname === link.href
+                  isActive(link.href)
                     ? "text-text font-bold"
                     : "text-text hover:text-accent"
                 }`}
@@ -62,12 +91,12 @@ export default function Header() {
             <li key={link.href}>
               <Link
                 href={link.href}
+                onClick={(e) => { handleClick(e, link.href); setMenuOpen(false); }}
                 className={`no-underline block py-1 ${
-                  pathname === link.href
+                  isActive(link.href)
                     ? "text-text font-bold"
                     : "text-text hover:text-accent"
                 }`}
-                onClick={() => setMenuOpen(false)}
               >
                 {link.label}
               </Link>

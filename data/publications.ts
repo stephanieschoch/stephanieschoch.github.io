@@ -1,3 +1,8 @@
+export interface PublicationResource {
+  label: string;
+  url: string;
+}
+
 export interface Publication {
   title: string;
   authors: string;
@@ -5,6 +10,7 @@ export interface Publication {
   year: number;
   note?: string;
   link?: string;
+  resources?: PublicationResource[];
 }
 
 export const publications: Publication[] = [
@@ -49,6 +55,7 @@ export const publications: Publication[] = [
     venue: "Proceedings of the 36th International Conference on Neural Information Processing Systems (NeurIPS)",
     year: 2022,
     link: "https://proceedings.neurips.cc/paper_files/paper/2022/hash/df334022279996b07e0870a629c18857-Abstract-Conference.html",
+    resources: [{ label: "Blog", url: "/blog/cs-shapley" }, { label: "Poster", url: "/cs_shapley_poster.pdf" }],
   },
   {
     title: "Ask and you shall receive?: A LibAnswers FAQ usability study",

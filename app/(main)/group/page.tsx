@@ -1,5 +1,6 @@
-import Image from "next/image";
-import { labName, labFullName, currentMembers } from "@/data/group";
+// Hidden for now — uncomment this import block along with the header JSX below.
+// import Image from "next/image";
+// import { labName } from "@/data/group";
 
 export const metadata = {
   title: "Group – Stephanie Schoch",
@@ -8,6 +9,8 @@ export const metadata = {
 export default function GroupPage() {
   return (
     <div>
+      {/* Hidden until the group page is ready — uncomment to restore the
+          logo, name, and tagline (also uncomment the imports at the top).
       <div className="flex items-center gap-1 mb-8">
         <Image
           src="/landing_logo.png"
@@ -25,6 +28,7 @@ export default function GroupPage() {
           </p>
         </div>
       </div>
+      */}
 
       <p className="text-text-light italic">More information coming soon...</p>
     </div>

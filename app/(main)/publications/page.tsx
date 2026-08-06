@@ -27,6 +27,21 @@ export default function PublicationsPage() {
             {pub.note && (
               <p className="text-accent text-sm font-medium mt-1">{pub.note}</p>
             )}
+            {pub.resources?.length && (
+              <div className="flex flex-wrap gap-2 mt-3">
+                {pub.resources.map((res, j) => (
+                  <a
+                    key={j}
+                    href={res.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs px-3 py-1 rounded border border-gray-300 text-text-light hover:text-accent hover:border-accent transition-colors"
+                  >
+                    {res.label}
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
         ))}
       </div>

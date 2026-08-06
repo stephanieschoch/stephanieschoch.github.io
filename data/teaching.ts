@@ -22,6 +22,13 @@ export interface Tutorial {
 
 export const courses: Course[] = [
   {
+    name: "CSCI 680: Natural Language Processing",
+    institution: "William & Mary",
+    semester: "Fall 2026",
+    role: "",
+    link: "/nlp",
+  },
+  {
     name: "CS 4710: Artificial Intelligence",
     institution: "University of Virginia",
     semester: "Spring 2024",

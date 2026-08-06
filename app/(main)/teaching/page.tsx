@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { courses, tutorials } from "@/data/teaching";
 
 export const metadata = {
@@ -15,9 +16,9 @@ export default function TeachingPage() {
           <div key={i} className="bg-white rounded-lg p-5 shadow-sm">
             <h3 className="font-semibold text-lg">
               {course.link ? (
-                <a href={course.link} className="text-accent hover:text-accent-dark hover:underline">
+                <Link href={course.link} className="text-text hover:text-accent">
                   {course.name}
-                </a>
+                </Link>
               ) : (
                 course.name
               )}
