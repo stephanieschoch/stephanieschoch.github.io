@@ -8,6 +8,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/publications", label: "Publications" },
   { href: "/teaching", label: "Teaching" },
+  { href: "/group", label: "Group" },
 ];
 
 export default function Header() {

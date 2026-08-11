@@ -18,13 +18,13 @@ export const courseInfo = {
   institution: "William & Mary",
   semester: "Fall 2026",
   time: "MWF 10:00–10:50am",
-  location: "Integrated Science Center 3280",
+  location: "Integrated Science Center (ISC) 3280",
   description:
     "This course provides an introduction to natural language processing (NLP) with a focus on modern methods and large language models. Topics include text classification, language modeling, sequence-to-sequence models, attention mechanisms, transformers, pre-training, fine-tuning, prompting, and evaluation. Students will gain both theoretical understanding and practical experience through assignments and a final project.",
   instructors: [
     { name: "Stephanie Schoch", url: "/" },
   ] as Instructor[],
-  officeHours: "TBD",
+  officeHours: "M 1:00 - 2:00 PM",
   prerequisites: "Students should be proficient in Python. Experience with packages such as SciPy, Scikit-learn, and PyTorch is helpful. Students should also have experience with Calculus, Linear Algebra, and Probability & Statistics.",
 };
 
@@ -96,7 +96,7 @@ export const schedule: ScheduleRow[] = [
   { week: 13, date: "Wed 11/18", topic: "Data-Centric NLP (2)" },
   { week: 13, date: "Fri 11/20", topic: "Paper Discussion" },
 
-  { week: 14, date: "Mon 11/23", topic: "Hands-On Day/Outro/Project Work Day" },
+  { week: 14, date: "Mon 11/23", topic: "Outro/Project Work Day" },
   { week: 14, date: "Wed 11/25", topic: "No Class - Thanksgiving Break" },
   { week: 14, date: "Fri 11/27", topic: "No Class - Thanksgiving Break" },
 

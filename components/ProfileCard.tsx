@@ -34,6 +34,22 @@ function CVIcon() {
   );
 }
 
+function MailIcon() {
+  return (
+    <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2v.638l-8 5.2-8-5.2V6h16zM4 18V8.943l7.454 4.846a1 1 0 0 0 1.092 0L20 8.943V18H4z" />
+    </svg>
+  );
+}
+
+function OfficeIcon() {
+  return (
+    <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2a7 7 0 0 0-7 7c0 5.05 6.24 12.31 6.5 12.62a.66.66 0 0 0 1 0C12.76 21.31 19 14.05 19 9a7 7 0 0 0-7-7zm0 17.38C10.15 17.1 6.5 12.13 6.5 9a5.5 5.5 0 0 1 11 0c0 3.13-3.65 8.1-5.5 10.38zM12 6a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0 4.5A1.5 1.5 0 1 1 12 7.5a1.5 1.5 0 0 1 0 3z" />
+    </svg>
+  );
+}
+
 const iconMap: Record<string, React.FC> = {
   cv: CVIcon,
   scholar: ScholarIcon,
@@ -60,7 +76,18 @@ export default function ProfileCard() {
         <br />
         {profile.institution}
       </p>
-      <p className="text-text-light text-sm mt-2">{profile.email}</p>
+      {/* inline-block shrinks to the widest row, so the pair centres as a
+          group while the two rows stay left-aligned to each other */}
+      <div className="text-text-light text-sm mt-2 space-y-1 inline-block text-left">
+        <p className="flex items-center justify-start gap-1.5">
+          <MailIcon />
+          <span>{profile.email}</span>
+        </p>
+        <p className="flex items-center justify-start gap-1.5">
+          <OfficeIcon />
+          <span>{profile.office}</span>
+        </p>
+      </div>
 
       {/* Social links */}
       <div className="flex justify-center gap-4 mt-4">
