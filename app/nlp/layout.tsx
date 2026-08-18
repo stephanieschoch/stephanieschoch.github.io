@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 const navLinks = [
   { href: "/nlp", label: "Home" },
   { href: "/nlp#schedule", label: "Schedule" },
-  { href: "/nlp/logistics", label: "Logistics" },
+  { href: "/nlp/resources", label: "Resources" },
   { href: "/nlp/project", label: "Project" },
 ];
 

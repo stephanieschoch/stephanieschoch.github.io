@@ -10,7 +10,7 @@ export default function ProjectPage() {
       <div className="space-y-8">
         {/* Project Pitch */}
         <section>
-          <h2 className="text-xl font-semibold mb-2">Project Pitch (%)</h2>
+          <h2 className="text-xl font-semibold mb-2">Project Pitch (5%)</h2>
           <p>
             Each student will pitch an idea for an NLP project to the class via
             a 5-minute presentation. This is aimed to assist in the team
@@ -31,7 +31,7 @@ export default function ProjectPage() {
 
         {/* Project Proposal */}
         <section>
-          <h2 className="text-xl font-semibold mb-2">Project Proposal (%)</h2>
+          <h2 className="text-xl font-semibold mb-2">Project Proposal (10%)</h2>
           <p className="mb-3">
             Teams will submit a 1-2 page project proposal (note: references do
             not count towards limit). The proposal is expected to demonstrate
@@ -74,7 +74,7 @@ export default function ProjectPage() {
         {/* Project Progress Report */}
         <section>
           <h2 className="text-xl font-semibold mb-2">
-            Project Progress Report (%)
+            Project Progress Report (10%)
           </h2>
           <p className="mb-3">
             Teams will submit a ~3 page progress report. This will outline any
@@ -108,7 +108,7 @@ export default function ProjectPage() {
         {/* Project Final Presentation */}
         <section>
           <h2 className="text-xl font-semibold mb-2">
-            Project Final Presentation (%)
+            Project Final Presentation (10%)
           </h2>
           <p>
             Each team will give a 15-20 minute presentation, with 5-10 minutes
@@ -118,7 +118,7 @@ export default function ProjectPage() {
 
         {/* Project Final Report */}
         <section>
-          <h2 className="text-xl font-semibold mb-2">Project Final Report (%)</h2>
+          <h2 className="text-xl font-semibold mb-2">Project Final Report (15%)</h2>
           <p className="mb-3">
             Teams will submit an 8 page (excluding references and appendix)
             final report.

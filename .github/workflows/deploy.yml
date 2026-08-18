@@ -24,6 +24,22 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+
+      # /nlp/planning is the instructor-only schedule view. It is reachable
+      # locally via `npm run dev`, but must never reach the published site —
+      # static hosting cannot password-protect it. Next.js has no dev-only
+      # route, so it is stripped from the export here and the deploy fails if
+      # anything is left behind.
+      - name: Strip instructor-only pages from the build output
+        run: |
+          rm -rf out/nlp/planning out/nlp/planning.html out/nlp/planning.txt
+          leftover=$(find out -path '*planning*' -print -quit)
+          if [ -n "$leftover" ]; then
+            echo "::error::instructor-only page still present in build output: $leftover"
+            exit 1
+          fi
+          echo "Verified: no /nlp/planning files in the deploy artifact."
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out

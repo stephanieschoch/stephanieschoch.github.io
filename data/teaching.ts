@@ -26,10 +26,7 @@ export const courses: Course[] = [
     institution: "William & Mary",
     semester: "Fall 2026",
     role: "",
-    // Course site lives in app/_nlp — the underscore opts the folder out of
-    // routing, so it is not built or published. To launch it: rename the
-    // folder to app/nlp and uncomment the line below.
-    // link: "/nlp",
+    link: "/nlp",
   },
   {
     name: "CS 4710: Artificial Intelligence",

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { courseInfo, schedule, deadlines } from "@/data/nlp";
+import ScheduleTable from "@/components/ScheduleTable";
 
 export const metadata = {
   title: "Natural Language Processing – Stephanie Schoch",
@@ -49,46 +50,7 @@ export default function NLPPage() {
 
       {/* Schedule */}
       <h2 id="schedule" className="text-xl font-semibold mb-4 scroll-mt-20">Schedule</h2>
-      <div className="overflow-x-auto mb-10 rounded-lg border border-gray-300">
-        <table className="w-full text-sm border-collapse">
-          <thead>
-            <tr className="bg-[#f0f0f0] text-left">
-              <th className="py-3 px-4 font-semibold w-16">Week</th>
-              <th className="py-3 px-4 font-semibold w-32">Date</th>
-              <th className="py-3 px-4 font-semibold w-1/3">Topic</th>
-              <th className="py-3 px-4 font-semibold">Course Material</th>
-            </tr>
-          </thead>
-          <tbody>
-            {schedule.map((row, i) => (
-              <tr key={i} className="bg-white border-b border-gray-200">
-                <td className="py-3 px-4 text-text-light">{row.week}</td>
-                <td className="py-3 px-4 text-text-light">{row.date}</td>
-                <td className="py-3 px-4">
-                  {row.topic}
-                  {row.due && (
-                    <span className="ml-2 text-xs font-medium text-accent bg-accent/10 px-2 py-0.5 rounded">
-                      {row.due}
-                    </span>
-                  )}
-                </td>
-                <td className="py-3 px-4">
-                  {row.materials && (
-                    <div className="text-sm" dangerouslySetInnerHTML={{
-                      __html: row.materials
-                        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-accent underline hover:text-accent/80">$1</a>')
-                        .replace(/\n(- .+(?:\n- .+)*)/g, (_match, items) => {
-                          const lis = (items as string).split('\n').map((item: string) => `<li>${item.replace(/^- /, '')}</li>`).join('');
-                          return `<ul class="list-disc ml-8 mt-1">${lis}</ul>`;
-                        }),
-                    }} />
-                  )}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <ScheduleTable rows={schedule} />
 
       {/* Deadlines */}
       <h2 id="deadlines" className="text-xl font-semibold mb-4 scroll-mt-20">Deadlines</h2>
@@ -98,8 +60,9 @@ export default function NLPPage() {
             <tr className="bg-[#f0f0f0] text-left">
               <th className="py-3 px-4 font-semibold w-16">Week</th>
               <th className="py-3 px-4 font-semibold">Deadline</th>
-              <th className="py-3 px-4 font-semibold w-40">Date</th>
-              <th className="py-3 px-4 font-semibold w-36">Time</th>
+              <th className="py-3 px-4 font-semibold w-32">Released</th>
+              <th className="py-3 px-4 font-semibold w-32">Due</th>
+              <th className="py-3 px-4 font-semibold w-28">Time</th>
             </tr>
           </thead>
           <tbody>
@@ -107,8 +70,9 @@ export default function NLPPage() {
               <tr key={i} className="bg-white border-b border-gray-200">
                 <td className="py-3 px-4 text-text-light">{row.week}</td>
                 <td className="py-3 px-4">{row.deadline}</td>
+                <td className="py-3 px-4 text-text-light">{row.released ?? "—"}</td>
                 <td className="py-3 px-4 text-text-light">{row.date}</td>
-                <td className="py-3 px-4 text-text-light">{row.time}</td>
+                <td className="py-3 px-4 text-text-light">{row.time ?? ""}</td>
               </tr>
             ))}
           </tbody>
@@ -129,6 +93,21 @@ export default function NLPPage() {
         <div>
           <h3 className="font-semibold mb-2">Prerequisites</h3>
           <p className="text-sm">{courseInfo.prerequisites}</p>
+        </div>
+        <div>
+          <h3 className="font-semibold mb-2">Syllabus</h3>
+          <p className="text-sm">
+            Objectives, grading, policies, and more (
+            <a
+              href={courseInfo.syllabus}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent underline hover:text-accent/80"
+            >
+              PDF
+            </a>
+            )
+          </p>
         </div>
       </div>
     </div>
