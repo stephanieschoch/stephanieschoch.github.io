@@ -32,12 +32,12 @@ export const courseInfo = {
   time: "MWF 10:00–10:50 AM",
   location: "Integrated Science Center (ISC) 3280",
   description:
-    "This course provides an introduction to natural language processing (NLP) with a focus on modern methods and large language models. Topics include text classification, language modeling, sequence-to-sequence models, attention mechanisms, transformers, pre-training, fine-tuning, prompting, and evaluation. Students will gain both theoretical understanding and practical experience through assignments and a final project.",
+    "This course provides a comprehensive introduction to natural language processing, spanning foundational techniques through large language models. The first half of the course will focus on linguistic and statistical fundamentals before advancing to neural architectures. The second half of the course will focus on the modern LLM pipeline (e.g. pre-training, post-training, and prompting). Students will also engage with advanced topics and emerging areas in NLP (e.g. interpretability, harms and risks of language modeling, data-centric NLP).",
   instructors: [
     { name: "Stephanie Schoch", url: "/" },
   ] as Instructor[],
   officeHours: "M 1:00–2:00 PM",
-  syllabus: "/wm_nlp_680_syllabus_fa26.pdf",
+  syllabus: "/csci_680_nlp_fa26.pdf",
   prerequisites: "Students should be proficient in Python. Experience with packages such as SciPy, Scikit-learn, and PyTorch is helpful. Students should also have experience with Calculus, Linear Algebra, and Probability & Statistics.",
 };
 
@@ -65,6 +65,21 @@ export const deadlines: DeadlineRow[] = [
   { week: 11, deadline: "Project Progress Report", date: "Mon 11/02", time: "11:59 PM" },
   { week: 13, deadline: "Homework 3", released: "Mon 10/26", date: "Fri 11/20", time: "11:59 PM" },
   { week: 14, deadline: "Project Final Report", date: "Tue 11/24", time: "11:59 PM" },
+];
+
+export interface Resource {
+  title: string;
+  url: string;
+  description?: string;
+}
+
+export const resources: Resource[] = [
+  {
+    title: "ACL Style Files",
+    url: "https://github.com/acl-org/acl-style-files",
+    description:
+      "LaTeX template and style files used for the project proposal, progress report, and final report.",
+  },
 ];
 
 // Jurafsky & Martin, Speech and Language Processing, 3rd ed. draft.
