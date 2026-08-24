@@ -17,7 +17,7 @@ export const publications: Publication[] = [
   {
     title: "PrAM: Offline Checkpoint Selection for Post-Hoc Training Data Attribution",
     authors: "Stephanie Schoch, Sidhya Pathak, Yangfeng Ji",
-    venue: "Findings of the Association for Computational Linguistics: EMNLP 2026",
+    venue: "(To Appear) Findings of the Association for Computational Linguistics: EMNLP 2026",
     year: 2026,
   },
   {
