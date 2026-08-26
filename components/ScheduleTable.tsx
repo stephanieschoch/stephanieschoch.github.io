@@ -51,7 +51,22 @@ export default function ScheduleTable({ rows, revealHidden = false }: ScheduleTa
                 <td className="py-3 px-4 text-text-light">{row.week}</td>
                 <td className="py-3 px-4 text-text-light">{row.date}</td>
                 <td className="py-3 px-4">
-                  {revealHidden && row.planningTopic ? row.planningTopic : row.topic}
+                  {(() => {
+                    const label =
+                      revealHidden && row.planningTopic ? row.planningTopic : row.topic;
+                    return row.slides ? (
+                      <a
+                        href={row.slides}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-accent underline hover:text-accent/80"
+                      >
+                        {label}
+                      </a>
+                    ) : (
+                      label
+                    );
+                  })()}
                   {revealHidden && row.planningTopic && row.planningTopic !== row.topic && (
                     <span className="block text-xs text-text-light italic mt-0.5">
                       students see: {row.topic}

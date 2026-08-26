@@ -16,6 +16,11 @@ export interface ScheduleRow {
    */
   materialsHidden?: boolean;
   /**
+   * Lecture slides. When set, the topic becomes a link that opens the PDF in a
+   * new tab. Files live in public/slides/.
+   */
+  slides?: string;
+  /**
    * Fuller topic text shown only on /nlp/planning. Use when the public title
    * is deliberately abbreviated ("Post-Training (e.g. RLHF)") but you want the
    * complete list of subtopics in your own view.
@@ -184,7 +189,7 @@ const P = {
 } as const satisfies Record<string, Paper>;
 
 const rawSchedule: ScheduleRow[] = [
-  { week: 1, date: "Wed 08/26", topic: "Course Overview, Linguistic Fundamentals, History of NLP" },
+  { week: 1, date: "Wed 08/26", topic: "Course Overview, Linguistic Fundamentals, History of NLP", slides: "/slides/wm_fa26_cs680_nlp_lec1_introduction.pdf" },
   { week: 1, date: "Fri 08/28", topic: "Basics of Text Processing", planningTopic: "Basics of Text Processing (Words and Tokens)", materials: readings(jm(2)) },
 
   { week: 2, date: "Mon 08/31", topic: "N-Gram Language Models (1)", materials: readings(jm(3)) },
