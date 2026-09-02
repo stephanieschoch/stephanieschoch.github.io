@@ -193,7 +193,7 @@ const rawSchedule: ScheduleRow[] = [
   { week: 1, date: "Fri 08/28", topic: "Basics of Text Processing", planningTopic: "Basics of Text Processing (Words and Tokens)", materials: readings(jm(2)), slides: "/slides/wm_fa26_cs680_nlp_lec2_textprocessing.pdf" },
 
   { week: 2, date: "Mon 08/31", topic: "N-Gram Language Models (1)", materials: readings(jm(3)), slides: "/slides/wm_fa26_cs680_nlp_lec3_ngramlms.pdf" },
-  { week: 2, date: "Wed 09/02", topic: "N-Gram Language Models (2)", materials: readings(jm(3)) },
+  { week: 2, date: "Wed 09/02", topic: "N-Gram Language Models (2)", materials: readings(jm(3)), slides: "/slides/wm_fa26_cs680_nlp_lec4_ngramlms.pdf" },
   { week: 2, date: "Fri 09/04", topic: "Text Classification (1)", materials: readings(jm(4)) },
 
   { week: 3, date: "Mon 09/07", topic: "No Class - Labor Day" },
