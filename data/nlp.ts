@@ -62,7 +62,7 @@ export const deadlines: DeadlineRow[] = [
   { week: 4, deadline: "Project Pitch Slide", date: "Mon 09/14", time: "11:59 PM" },
   { week: 5, deadline: "Quiz 1: Statistical Foundations", date: "Mon 09/21", time: "10:00 AM" },
   { week: 5, deadline: "Project Team Formation", date: "Wed 09/23", time: "11:59 PM" },
-  { week: 5, deadline: "Homework 1", released: "Wed 09/09", date: "Fri 09/25", time: "11:59 PM" },
+  { week: 5, deadline: "Homework 1", released: "Fri 09/11", date: "Fri 09/25", time: "11:59 PM" },
   { week: 6, deadline: "Project Proposal", date: "Fri 10/02", time: "11:59 PM" },
   { week: 8, deadline: "Quiz 2: Neural Methods", date: "Mon 10/12", time: "10:00 AM" },
   { week: 9, deadline: "Homework 2", released: "Mon 09/28", date: "Fri 10/23", time: "11:59 PM" },
