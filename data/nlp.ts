@@ -198,9 +198,9 @@ const rawSchedule: ScheduleRow[] = [
 
   { week: 3, date: "Mon 09/07", topic: "No Class - Labor Day" },
   { week: 3, date: "Wed 09/09", topic: "Text Classification (2)", materials: readings(jm(4)), slides: "/slides/wm_fa26_cs680_nlp_lec6_textclassification2.pdf" },
-  { week: 3, date: "Fri 09/11", topic: "Word Embeddings (1)", materials: material(readings(jm(5)), papers(P.word2vec)), slides: "/slides/wm_fa26_cs680_nlp_lec7_wordembeddings.pdf" },
+  { week: 3, date: "Fri 09/11", topic: "Word Embeddings (1)", materials: readings(jm(5)), slides: "/slides/wm_fa26_cs680_nlp_lec7_wordembeddings.pdf" },
 
-  { week: 4, date: "Mon 09/14", topic: "Word Embeddings (2)", materials: material(readings(jm(5)), papers(P.glove)) },
+  { week: 4, date: "Mon 09/14", topic: "Word Embeddings (2)", materials: readings(jm(5)) },
   { week: 4, date: "Wed 09/16", topic: "Project Pitches" },
   { week: 4, date: "Fri 09/18", topic: "Project Pitches" },
 
