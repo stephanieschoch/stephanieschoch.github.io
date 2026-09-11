@@ -257,7 +257,7 @@ const rawSchedule: ScheduleRow[] = [
  * Move this date forward as the semester progresses. Set it to "" to show
  * everything, or to the first session to hide everything.
  */
-export const materialsVisibleThrough = "Wed 09/09";
+export const materialsVisibleThrough = "Mon 09/14";
 
 const cutoff = rawSchedule.findIndex((r) => r.date === materialsVisibleThrough);
 
