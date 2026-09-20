@@ -16,6 +16,12 @@ export interface ScheduleRow {
    */
   materialsHidden?: boolean;
   /**
+   * Hide only this row's suggested papers on /nlp, leaving its readings
+   * visible. Set from `papersVisibleThrough`, so a week's readings can go out
+   * while the paper list is still being settled.
+   */
+  papersHidden?: boolean;
+  /**
    * Lecture slides. When set, the topic becomes a link that opens the PDF in a
    * new tab. Files live in public/slides/.
    */
@@ -62,7 +68,7 @@ export const deadlines: DeadlineRow[] = [
   { week: 4, deadline: "Project Pitch Slide", date: "Mon 09/14", time: "11:59 PM" },
   { week: 5, deadline: "Quiz 1: Statistical Foundations", date: "Mon 09/21", time: "10:00 AM" },
   { week: 5, deadline: "Project Team Formation", date: "Wed 09/23", time: "11:59 PM" },
-  { week: 5, deadline: "Homework 1", released: "Fri 09/11", date: "Fri 09/25", time: "11:59 PM" },
+  { week: 6, deadline: "Homework 1", released: "Mon 09/14", date: "Wed 09/30", time: "11:59 PM" },
   { week: 6, deadline: "Project Proposal", date: "Fri 10/02", time: "11:59 PM" },
   { week: 8, deadline: "Quiz 2: Neural Methods", date: "Mon 10/12", time: "10:00 AM" },
   { week: 9, deadline: "Homework 2", released: "Mon 09/28", date: "Fri 10/23", time: "11:59 PM" },
@@ -88,12 +94,12 @@ export const resources: Resource[] = [
 ];
 
 // Jurafsky & Martin, Speech and Language Processing, 3rd ed. draft.
-// Section numbers were read from the Jan 6 2026 chapter PDFs — this is a living
-// draft and sections do move between releases, so re-verify each semester.
+// Chapter numbers are from the Aug 19 2026 release — this is a living draft and
+// chapters do move between releases, so re-verify each semester.
 const SLP = "https://web.stanford.edu/~jurafsky/slp3";
-// Note: ch. 1 has no standalone PDF (slp3/1.pdf is a 404); it exists only inside
-// the ~25MB full-text book, so it is not cited here.
-// Rendered as "J&M: §7.4", or "J&M: §3.4, §12.4" when a day has several.
+// Rendered as "J&M: §7", or "J&M: §3, §13" when a day has several. The optional
+// `sec` narrows a citation to a section ("7.4"); the schedule cites whole
+// chapters, so it is currently unused.
 const jm = (ch: number, sec?: string) => `[§${sec ?? ch}](${SLP}/${ch}.pdf)`;
 
 // The "J&M:" prefix goes *inside* the first link so the whole reference is
@@ -107,8 +113,11 @@ const readings = (...refs: string[]) => {
 // [short display name, url, full title]. The short name is what appears in the
 // schedule; the full title becomes the link's hover tooltip.
 type Paper = readonly [short: string, url: string, full: string];
+// Exported so ScheduleTable can find — and drop — this line when a row's
+// papers are hidden but its readings are not.
+export const PAPERS_LABEL = "Suggested Papers:";
 const papers = (...ps: Paper[]) =>
-  `Suggested Papers: ${ps.map(([s, u, f]) => `[${s}](${u} "${f}")`).join(", ")}`;
+  `${PAPERS_LABEL} ${ps.map(([s, u, f]) => `[${s}](${u} "${f}")`).join(", ")}`;
 
 // The renderer turns each run of "- " lines into its own <ul>, so the two
 // groups stay visually separate. See app/nlp/page.tsx.
@@ -204,36 +213,36 @@ const rawSchedule: ScheduleRow[] = [
   { week: 4, date: "Wed 09/16", topic: "Project Pitches" },
   { week: 4, date: "Fri 09/18", topic: "Project Pitches" },
 
-  { week: 5, date: "Mon 09/21", topic: "Feedforward Networks", materials: readings(jm(6)) },
-  { week: 5, date: "Wed 09/23", topic: "Backpropagation and RNNs", materials: readings(jm(13)) },
-  { week: 5, date: "Fri 09/25", topic: "RNNs (Cont.)", materials: readings(jm(13, "13.4–13.5")) },
+  { week: 5, date: "Mon 09/21", topic: "Project Pitches & Discussion" },
+  { week: 5, date: "Wed 09/23", topic: "Feedforward Networks", materials: readings(jm(6)) },
+  { week: 5, date: "Fri 09/25", topic: "Backpropagation & RNNs", materials: readings(jm(6), jm(14)) },
 
-  { week: 6, date: "Mon 09/28", topic: "Seq2Seq", materials: material(readings(jm(13, "13.7")), papers(P.seq2seq)) },
-  { week: 6, date: "Wed 09/30", topic: "Attention", materials: material(readings(jm(8, "8.1")), papers(P.bahdanau)) },
-  { week: 6, date: "Fri 10/02", topic: "Language Generation", materials: material(readings(jm(3, "3.4"), jm(12, "12.4"), jm(12, "12.6")), papers(P.bleu)) },
+  { week: 6, date: "Mon 09/28", topic: "Seq2Seq", materials: material(readings(jm(14)), papers(P.seq2seq)) },
+  { week: 6, date: "Wed 09/30", topic: "Attention", materials: material(readings(jm(7)), papers(P.bahdanau)) },
+  { week: 6, date: "Fri 10/02", topic: "Language Generation", materials: material(readings(jm(13)), papers(P.bleu)) },
 
-  { week: 7, date: "Mon 10/05", topic: "Transformers (1)", materials: material(readings(jm(8, "8.2–8.3")), papers(P.attention)) },
-  { week: 7, date: "Wed 10/07", topic: "Transformers (2)", materials: readings(jm(8, "8.4–8.5")) },
+  { week: 7, date: "Mon 10/05", topic: "Transformers (1)", materials: material(readings(jm(7)), papers(P.attention)) },
+  { week: 7, date: "Wed 10/07", topic: "Transformers (2)", materials: readings(jm(7)) },
   { week: 7, date: "Fri 10/09", topic: "No Class - Fall Break" },
 
   { week: 8, date: "Mon 10/12", topic: "Hands-On Day" },
-  { week: 8, date: "Wed 10/14", topic: "Transformer LMs (1)", planningTopic: "Transformer LMs (1): Architectures & Tokenization", materials: material(readings(jm(7), jm(2, "2.4")), papers(P.bpe)) },
-  { week: 8, date: "Fri 10/16", topic: "Transformer LMs (2)", planningTopic: "Transformer LMs (2): BERT & GPT", materials: material(readings(jm(10), jm(8, "8.6")), papers(P.bert, P.gpt1, P.nucleus)) },
+  { week: 8, date: "Wed 10/14", topic: "Transformer LMs (1)", planningTopic: "Transformer LMs (1): Architectures & Tokenization", materials: material(readings(jm(1), jm(9), jm(2)), papers(P.bpe)) },
+  { week: 8, date: "Fri 10/16", topic: "Transformer LMs (2)", planningTopic: "Transformer LMs (2): BERT & GPT", materials: material(readings(jm(9), jm(7)), papers(P.bert, P.gpt1, P.nucleus)) },
 
-  { week: 9, date: "Mon 10/19", topic: "Pre-Training LLMs", materials: material(readings(jm(7, "7.5")), papers(P.llama3)) },
-  { week: 9, date: "Wed 10/21", topic: "Guest Lecture: Scaling Laws & Optimization", materials: material(readings(jm(8, "8.7"), jm(8, "8.8.1")), papers(P.scaling)) },
-  { week: 9, date: "Fri 10/23", topic: "Post-Training", planningTopic: "Post-Training: (RLHF, Instruction-Tuning, SFT, DPO)", materials: material(readings(jm(9, "9.1–9.3")), papers(P.instructgpt, P.dpo, P.r1)) },
+  { week: 9, date: "Mon 10/19", topic: "Pre-Training LLMs", materials: material(readings(jm(1), jm(7)), papers(P.llama3)) },
+  { week: 9, date: "Wed 10/21", topic: "Guest Lecture: Scaling Laws & Optimization", materials: material(readings(jm(1)), papers(P.scaling)) },
+  { week: 9, date: "Fri 10/23", topic: "Post-Training", planningTopic: "Post-Training: (RLHF, Instruction-Tuning, SFT, DPO)", materials: material(readings(jm(8)), papers(P.instructgpt, P.dpo, P.r1)) },
 
-  { week: 10, date: "Mon 10/26", topic: "Fine-Tuning, Efficient Adaptation", planningTopic: "Fine-Tuning, Transfer Learning, Efficient Adaptation (PEFT, LORA)", materials: material(readings(jm(8, "8.8.3")), papers(P.lora, P.adapters)) },
-  { week: 10, date: "Wed 10/28", topic: "Prompting, In-Context Learning, and Chain-of-Thought", materials: material(readings(jm(7, "7.3"), jm(8, "8.9.1"), jm(9, "9.4")), papers(P.gpt3, P.cot)) },
+  { week: 10, date: "Mon 10/26", topic: "Fine-Tuning, Efficient Adaptation", planningTopic: "Fine-Tuning, Transfer Learning, Efficient Adaptation (PEFT, LORA)", materials: material(readings(jm(8)), papers(P.lora, P.adapters)) },
+  { week: 10, date: "Wed 10/28", topic: "Prompting, In-Context Learning, and Chain-of-Thought", materials: material(readings(jm(1), jm(10)), papers(P.gpt3, P.cot)) },
   { week: 10, date: "Fri 10/30", topic: "LLM Agents", planningTopic: "LLM Agents, Tool Use, RAG", materials: material(readings(jm(11)), papers(P.rag, P.react, P.toolformer)) },
 
-  { week: 11, date: "Mon 11/02", topic: "Evaluating LLMs", materials: material(readings(jm(7, "7.6")), papers(P.helm, P.mmlu, P.mauve)) },
-  { week: 11, date: "Wed 11/04", topic: "Responsible Language Modeling", planningTopic: "Responsible Language Modeling (Harms & Risks)", materials: material(readings(jm(7, "7.7")), papers(P.parrots, P.risks)) },
+  { week: 11, date: "Mon 11/02", topic: "Evaluating LLMs", materials: material(readings(jm(1)), papers(P.helm, P.mmlu, P.mauve)) },
+  { week: 11, date: "Wed 11/04", topic: "Responsible Language Modeling", planningTopic: "Responsible Language Modeling (Harms & Risks)", materials: material(readings(jm(1)), papers(P.parrots, P.risks)) },
   { week: 11, date: "Fri 11/06", topic: "Paper Discussion 1" },
 
   { week: 12, date: "Mon 11/09", topic: "Project Work Day" },
-  { week: 12, date: "Wed 11/11", topic: "Interpretability", materials: material(readings(jm(8, "8.9")), papers(P.attnNotExpl)) },
+  { week: 12, date: "Wed 11/11", topic: "Interpretability", materials: material(readings(jm(10)), papers(P.attnNotExpl)) },
   { week: 12, date: "Fri 11/13", topic: "Paper Discussion 2" },
 
   { week: 13, date: "Mon 11/16", topic: "Robustness & Fairness", materials: papers(P.checklist, P.crowspairs) },
@@ -257,15 +266,31 @@ const rawSchedule: ScheduleRow[] = [
  * Move this date forward as the semester progresses. Set it to "" to show
  * everything, or to the first session to hide everything.
  */
-export const materialsVisibleThrough = "Mon 09/14";
+export const materialsVisibleThrough = "Wed 10/07";
+
+/**
+ * Suggested papers are revealed on their own schedule, always at or behind
+ * `materialsVisibleThrough`: a session past this date shows its readings on
+ * /nlp but not its papers. They stay visible on /nlp/planning either way.
+ *
+ * Same convention as above — "" shows every paper list, the first session
+ * hides them all.
+ */
+export const papersVisibleThrough = "Wed 08/26";
 
 const cutoff = rawSchedule.findIndex((r) => r.date === materialsVisibleThrough);
+const papersCutoff = rawSchedule.findIndex((r) => r.date === papersVisibleThrough);
 
-export const schedule: ScheduleRow[] = rawSchedule.map((row, i) =>
-  cutoff !== -1 && i > cutoff && row.materials
-    ? { ...row, materialsHidden: true }
-    : row
-);
+export const schedule: ScheduleRow[] = rawSchedule.map((row, i) => {
+  if (!row.materials) return row;
+  return {
+    ...row,
+    ...(cutoff !== -1 && i > cutoff && { materialsHidden: true }),
+    ...(papersCutoff !== -1 &&
+      i > papersCutoff &&
+      row.materials.includes(PAPERS_LABEL) && { papersHidden: true }),
+  };
+});
 
 export interface RemovedItem {
   topic: string;

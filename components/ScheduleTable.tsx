@@ -1,4 +1,14 @@
-import type { ScheduleRow } from "@/data/nlp";
+import { PAPERS_LABEL, type ScheduleRow } from "@/data/nlp";
+
+// Drop the "Suggested Papers:" line, keeping the readings. Used for rows whose
+// papers are hidden from students while their readings are already public.
+function withoutPapers(markdown: string) {
+  return markdown
+    .split("\n")
+    .filter((line) => !line.trimStart().startsWith(PAPERS_LABEL))
+    .join("\n")
+    .trim();
+}
 
 // Each line becomes its own block: a "Readings:" / "Suggested Papers:" label
 // followed inline by its comma-separated links.
@@ -45,7 +55,14 @@ export default function ScheduleTable({ rows, revealHidden = false }: ScheduleTa
         <tbody>
           {rows.map((row, i) => {
             const hidden = Boolean(row.materialsHidden);
-            const show = row.materials && (revealHidden || !hidden);
+            const papersHidden = Boolean(row.papersHidden);
+            // The instructor view sees everything; students see the readings
+            // with the papers line removed.
+            const materials =
+              row.materials && !revealHidden && papersHidden
+                ? withoutPapers(row.materials)
+                : row.materials;
+            const show = materials && (revealHidden || !hidden);
             return (
               <tr key={i} className="bg-white border-b border-gray-200">
                 <td className="py-3 px-4 text-text-light">{row.week}</td>
@@ -81,14 +98,14 @@ export default function ScheduleTable({ rows, revealHidden = false }: ScheduleTa
                 <td className="py-3 px-4">
                   {show && (
                     <>
-                      {revealHidden && hidden && (
+                      {revealHidden && (hidden || papersHidden) && (
                         <span className="inline-block mb-1 text-xs font-medium text-amber-800 bg-amber-100 px-2 py-0.5 rounded">
-                          hidden from students
+                          {hidden ? "hidden from students" : "papers hidden from students"}
                         </span>
                       )}
                       <div
                         className={`text-sm ${revealHidden && hidden ? "opacity-70" : ""}`}
-                        dangerouslySetInnerHTML={{ __html: toHtml(row.materials!) }}
+                        dangerouslySetInnerHTML={{ __html: toHtml(materials!) }}
                       />
                     </>
                   )}

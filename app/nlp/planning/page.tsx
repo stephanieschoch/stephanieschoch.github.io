@@ -33,7 +33,16 @@ export default function NLPPlanningPage() {
             materialsHidden: true
           </code>{" "}
           on that entry in <code className="bg-white px-1 py-0.5 rounded text-xs">data/nlp.ts</code>.
-          Hidden rows stay visible here, tagged in amber.
+          Hidden rows stay visible here, tagged in amber. To release a week&rsquo;s
+          readings while holding back its paper list, leave{" "}
+          <code className="bg-white px-1 py-0.5 rounded text-xs">
+            papersVisibleThrough
+          </code>{" "}
+          behind{" "}
+          <code className="bg-white px-1 py-0.5 rounded text-xs">
+            materialsVisibleThrough
+          </code>
+          .
         </p>
       </div>
 
