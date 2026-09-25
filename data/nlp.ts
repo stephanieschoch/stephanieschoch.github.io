@@ -215,7 +215,7 @@ const rawSchedule: ScheduleRow[] = [
 
   { week: 5, date: "Mon 09/21", topic: "Project Pitches & Discussion" },
   { week: 5, date: "Wed 09/23", topic: "Feedforward Networks", materials: readings(jm(6)), slides: "/slides/wm_fa26_cs680_nlp_lec9_ffn.pdf" },
-  { week: 5, date: "Fri 09/25", topic: "Backpropagation & RNNs", materials: readings(jm(6), jm(14)) },
+  { week: 5, date: "Fri 09/25", topic: "Backpropagation & RNNs", materials: readings(jm(6), jm(14)), slides: "/slides/wm_fa26_cs680_nlp_lec10_backprop.pdf" },
 
   { week: 6, date: "Mon 09/28", topic: "Seq2Seq", materials: material(readings(jm(14)), papers(P.seq2seq)) },
   { week: 6, date: "Wed 09/30", topic: "Attention", materials: material(readings(jm(7)), papers(P.bahdanau)) },
