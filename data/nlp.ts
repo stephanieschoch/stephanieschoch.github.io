@@ -70,8 +70,8 @@ export const deadlines: DeadlineRow[] = [
   { week: 5, deadline: "Project Team Formation", date: "Wed 09/23", time: "11:59 PM" },
   { week: 6, deadline: "Homework 1", released: "Mon 09/14", date: "Wed 09/30", time: "11:59 PM" },
   { week: 6, deadline: "Project Proposal", date: "Fri 10/02", time: "11:59 PM" },
-  { week: 8, deadline: "Quiz 2: Neural Methods", date: "Mon 10/12", time: "10:00 AM" },
-  { week: 9, deadline: "Homework 2", released: "Mon 09/28", date: "Fri 10/23", time: "11:59 PM" },
+  { week: 8, deadline: "Quiz 2: Neural Methods", date: "Wed 10/14", time: "10:00 AM" },
+  { week: 9, deadline: "Homework 2", released: "Wed 09/30", date: "Fri 10/23", time: "11:59 PM" },
   { week: 10, deadline: "Quiz 3: LLMs", date: "Fri 10/30", time: "10:00 AM" },
   { week: 11, deadline: "Project Progress Report", date: "Mon 11/02", time: "11:59 PM" },
   { week: 13, deadline: "Homework 3", released: "Mon 10/26", date: "Fri 11/20", time: "11:59 PM" },
@@ -215,17 +215,17 @@ const rawSchedule: ScheduleRow[] = [
 
   { week: 5, date: "Mon 09/21", topic: "Project Pitches & Discussion" },
   { week: 5, date: "Wed 09/23", topic: "Feedforward Networks", materials: readings(jm(6)), slides: "/slides/wm_fa26_cs680_nlp_lec9_ffn.pdf" },
-  { week: 5, date: "Fri 09/25", topic: "Backpropagation & RNNs", materials: readings(jm(6), jm(14)), slides: "/slides/wm_fa26_cs680_nlp_lec10_backprop.pdf" },
+  { week: 5, date: "Fri 09/25", topic: "Backpropagation", materials: readings(jm(6)), slides: "/slides/wm_fa26_cs680_nlp_lec10_backprop.pdf" },
 
-  { week: 6, date: "Mon 09/28", topic: "Seq2Seq", materials: material(readings(jm(14)), papers(P.seq2seq)) },
-  { week: 6, date: "Wed 09/30", topic: "Attention", materials: material(readings(jm(7)), papers(P.bahdanau)) },
-  { week: 6, date: "Fri 10/02", topic: "Language Generation", materials: material(readings(jm(13)), papers(P.bleu)) },
+  { week: 6, date: "Mon 09/28", topic: "Hands-On Day" },
+  { week: 6, date: "Wed 09/30", topic: "RNNs", materials: readings(jm(14)) },
+  { week: 6, date: "Fri 10/02", topic: "Seq2Seq & Attention", materials: material(readings(jm(14), jm(7)), papers(P.seq2seq, P.bahdanau)) },
 
-  { week: 7, date: "Mon 10/05", topic: "Transformers (1)", materials: material(readings(jm(7)), papers(P.attention)) },
-  { week: 7, date: "Wed 10/07", topic: "Transformers (2)", materials: readings(jm(7)) },
+  { week: 7, date: "Mon 10/05", topic: "Language Generation", materials: material(readings(jm(13)), papers(P.bleu)) },
+  { week: 7, date: "Wed 10/07", topic: "Transformers (1)", materials: material(readings(jm(7)), papers(P.attention)) },
   { week: 7, date: "Fri 10/09", topic: "No Class - Fall Break" },
 
-  { week: 8, date: "Mon 10/12", topic: "Hands-On Day" },
+  { week: 8, date: "Mon 10/12", topic: "Transformers (2)", materials: readings(jm(7)) },
   { week: 8, date: "Wed 10/14", topic: "Transformer LMs (1)", planningTopic: "Transformer LMs (1): Architectures & Tokenization", materials: material(readings(jm(1), jm(9), jm(2)), papers(P.bpe)) },
   { week: 8, date: "Fri 10/16", topic: "Transformer LMs (2)", planningTopic: "Transformer LMs (2): BERT & GPT", materials: material(readings(jm(9), jm(7)), papers(P.bert, P.gpt1, P.nucleus)) },
 
@@ -266,7 +266,7 @@ const rawSchedule: ScheduleRow[] = [
  * Move this date forward as the semester progresses. Set it to "" to show
  * everything, or to the first session to hide everything.
  */
-export const materialsVisibleThrough = "Wed 10/07";
+export const materialsVisibleThrough = "Mon 10/12";
 
 /**
  * Suggested papers are revealed on their own schedule, always at or behind
