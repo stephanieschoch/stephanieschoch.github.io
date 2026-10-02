@@ -33,8 +33,8 @@ export default function ProjectPage() {
         <section>
           <h2 className="text-xl font-semibold mb-2">Project Proposal (10%)</h2>
           <p className="mb-3">
-            Teams will submit a 1-2 page project proposal (note: references do
-            not count towards limit). The proposal is expected to demonstrate
+            Teams will submit a project proposal of at least 1-2 pages (note:
+            references do not count towards the page count). The proposal is expected to demonstrate
             that the teams have thought about their problem, understand how it
             fits within the related literature, and have a clear and feasible
             plan to move forward (e.g. considered data and compute resources).
@@ -77,7 +77,7 @@ export default function ProjectPage() {
             Project Progress Report (10%)
           </h2>
           <p className="mb-3">
-            Teams will submit a ~3 page progress report. This will outline any
+            Teams will submit a ~3-5 page progress report. This will outline any
             changes that were made in response to proposal feedback and should
             demonstrate that non-trivial progress has been made.
           </p>
