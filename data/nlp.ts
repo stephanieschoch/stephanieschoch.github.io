@@ -225,13 +225,13 @@ const rawSchedule: ScheduleRow[] = [
   { week: 6, date: "Wed 09/30", topic: "RNNs", materials: readings(jm(14)), slides: "/slides/wm_fa26_cs680_nlp_lec11_rnn.pdf" },
   { week: 6, date: "Fri 10/02", topic: "Seq2Seq & Attention", materials: material(readings(jm(14), jm(7)), papers(P.seq2seq, P.bahdanau)), slides: "/slides/wm_fa26_cs680_nlp_lec12_seq2seq_attn.pdf" },
 
-  { week: 7, date: "Mon 10/05", topic: "Language Generation", materials: material(readings(jm(13)), papers(P.bleu)), slides: "/slides/wm_fa26_cs680_nlp_lec13_generation.pdf" },
-  { week: 7, date: "Wed 10/07", topic: "Transformers (1)", materials: material(readings(jm(7)), notebook("/notebooks/csci680_nlp_decoding_strategies.ipynb"), papers(P.attention)), slides: "/slides/wm_fa26_cs680_nlp_lec14_generation.pdf" },
+  { week: 7, date: "Mon 10/05", topic: "Language Generation (1)", materials: material(readings(jm(13)), papers(P.bleu)), slides: "/slides/wm_fa26_cs680_nlp_lec13_generation.pdf" },
+  { week: 7, date: "Wed 10/07", topic: "Language Generation (2)", materials: material(readings(jm(13)), notebook("/notebooks/csci680_nlp_decoding_strategies.ipynb")), slides: "/slides/wm_fa26_cs680_nlp_lec14_generation.pdf" },
   { week: 7, date: "Fri 10/09", topic: "No Class - Fall Break" },
 
-  { week: 8, date: "Mon 10/12", topic: "Transformers (2)", materials: readings(jm(7)) },
-  { week: 8, date: "Wed 10/14", topic: "Transformer LMs (1)", planningTopic: "Transformer LMs (1): Architectures & Tokenization", materials: material(readings(jm(1), jm(9), jm(2)), papers(P.bpe)) },
-  { week: 8, date: "Fri 10/16", topic: "Transformer LMs (2)", planningTopic: "Transformer LMs (2): BERT & GPT", materials: material(readings(jm(9), jm(7)), papers(P.bert, P.gpt1, P.nucleus)) },
+  { week: 8, date: "Mon 10/12", topic: "Transformers (1)", materials: material(readings(jm(7)), papers(P.attention)) },
+  { week: 8, date: "Wed 10/14", topic: "Transformers (2)", materials: readings(jm(7)) },
+  { week: 8, date: "Fri 10/16", topic: "Transformer LMs", planningTopic: "Transformer LMs: Architectures & Tokenization, BERT & GPT", materials: material(readings(jm(1), jm(9), jm(2), jm(7)), papers(P.bpe, P.bert, P.gpt1, P.nucleus)) },
 
   { week: 9, date: "Mon 10/19", topic: "Pre-Training LLMs", materials: material(readings(jm(1), jm(7)), papers(P.llama3)) },
   { week: 9, date: "Wed 10/21", topic: "Guest Lecture: Scaling Laws & Optimization", materials: material(readings(jm(1)), papers(P.scaling)) },
@@ -270,7 +270,7 @@ const rawSchedule: ScheduleRow[] = [
  * Move this date forward as the semester progresses. Set it to "" to show
  * everything, or to the first session to hide everything.
  */
-export const materialsVisibleThrough = "Mon 10/12";
+export const materialsVisibleThrough = "Wed 10/14";
 
 /**
  * Suggested papers are revealed on their own schedule, always at or behind
