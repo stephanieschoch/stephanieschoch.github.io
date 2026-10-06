@@ -119,6 +119,10 @@ export const PAPERS_LABEL = "Suggested Papers:";
 const papers = (...ps: Paper[]) =>
   `${PAPERS_LABEL} ${ps.map(([s, u, f]) => `[${s}](${u} "${f}")`).join(", ")}`;
 
+// Linked notebooks live in public/notebooks/. Rendered as a bare "Notebook"
+// link on its own line, under the readings.
+const notebook = (file: string) => `[Notebook](${file})`;
+
 // The renderer turns each run of "- " lines into its own <ul>, so the two
 // groups stay visually separate. See app/nlp/page.tsx.
 const material = (...parts: string[]) => parts.join("\n");
@@ -222,7 +226,7 @@ const rawSchedule: ScheduleRow[] = [
   { week: 6, date: "Fri 10/02", topic: "Seq2Seq & Attention", materials: material(readings(jm(14), jm(7)), papers(P.seq2seq, P.bahdanau)), slides: "/slides/wm_fa26_cs680_nlp_lec12_seq2seq_attn.pdf" },
 
   { week: 7, date: "Mon 10/05", topic: "Language Generation", materials: material(readings(jm(13)), papers(P.bleu)), slides: "/slides/wm_fa26_cs680_nlp_lec13_generation.pdf" },
-  { week: 7, date: "Wed 10/07", topic: "Transformers (1)", materials: material(readings(jm(7)), papers(P.attention)) },
+  { week: 7, date: "Wed 10/07", topic: "Transformers (1)", materials: material(readings(jm(7)), notebook("/notebooks/csci680_nlp_decoding_strategies.ipynb"), papers(P.attention)), slides: "/slides/wm_fa26_cs680_nlp_lec14_generation.pdf" },
   { week: 7, date: "Fri 10/09", topic: "No Class - Fall Break" },
 
   { week: 8, date: "Mon 10/12", topic: "Transformers (2)", materials: readings(jm(7)) },
