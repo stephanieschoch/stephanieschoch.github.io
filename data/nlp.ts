@@ -116,8 +116,8 @@ type Paper = readonly [short: string, url: string, full: string];
 // Exported so ScheduleTable can find — and drop — this line when a row's
 // papers are hidden but its readings are not.
 export const PAPERS_LABEL = "Suggested Papers:";
-const papers = (...ps: Paper[]) =>
-  `${PAPERS_LABEL} ${ps.map(([s, u, f]) => `[${s}](${u} "${f}")`).join(", ")}`;
+const paper = ([s, u, f]: Paper) => `[${s}](${u} "${f}")`;
+const papers = (...ps: Paper[]) => `${PAPERS_LABEL} ${ps.map(paper).join(", ")}`;
 
 // Linked notebooks live in public/notebooks/. Rendered as a bare "Notebook"
 // link on its own line, under the readings.
@@ -229,8 +229,8 @@ const rawSchedule: ScheduleRow[] = [
   { week: 7, date: "Wed 10/07", topic: "Language Generation (2)", materials: material(readings(jm(13)), notebook("/notebooks/csci680_nlp_decoding_strategies.ipynb")), slides: "/slides/wm_fa26_cs680_nlp_lec14_generation.pdf" },
   { week: 7, date: "Fri 10/09", topic: "No Class - Fall Break" },
 
-  { week: 8, date: "Mon 10/12", topic: "Transformers (1)", materials: material(readings(jm(7)), papers(P.attention)) },
-  { week: 8, date: "Wed 10/14", topic: "Transformers (2)", materials: readings(jm(7)) },
+  { week: 8, date: "Mon 10/12", topic: "Transformers (1)", materials: readings(jm(7), paper(P.attention)), slides: "/slides/wm_fa26_cs680_nlp_lec15_transformers1.pdf" },
+  { week: 8, date: "Wed 10/14", topic: "Transformers (2)", materials: readings(jm(7), paper(P.attention)) },
   { week: 8, date: "Fri 10/16", topic: "Transformer LMs", planningTopic: "Transformer LMs: Architectures & Tokenization, BERT & GPT", materials: material(readings(jm(1), jm(9), jm(2), jm(7)), papers(P.bpe, P.bert, P.gpt1, P.nucleus)) },
 
   { week: 9, date: "Mon 10/19", topic: "Pre-Training LLMs", materials: material(readings(jm(1), jm(7)), papers(P.llama3)) },
