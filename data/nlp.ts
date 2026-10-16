@@ -98,16 +98,17 @@ export const resources: Resource[] = [
 // chapters do move between releases, so re-verify each semester.
 const SLP = "https://web.stanford.edu/~jurafsky/slp3";
 // Rendered as "J&M: §7", or "J&M: §3, §13" when a day has several. The optional
-// `sec` narrows a citation to a section ("7.4"); the schedule cites whole
-// chapters, so it is currently unused.
+// `sec` narrows a citation to a section ("7.6"); it still links the whole
+// chapter PDF.
 const jm = (ch: number, sec?: string) => `[§${sec ?? ch}](${SLP}/${ch}.pdf)`;
 
-// The "J&M:" prefix goes *inside* the first link so the whole reference is
+// The "J&M:" prefix goes *inside* the first J&M link so the whole reference is
 // clickable — otherwise the prefix renders in body colour beside accent-coloured
-// links and reads like a dead link.
+// links and reads like a dead link. Other refs (papers) are left as they are, so
+// a day whose only reading is a paper gets no prefix.
 const readings = (...refs: string[]) => {
-  const [first, ...rest] = refs;
-  return `Readings: ${[first.replace(/^\[/, "[J&M: "), ...rest].join(", ")}`;
+  const i = refs.findIndex((r) => r.startsWith("[§"));
+  return `Readings: ${refs.map((r, j) => (j === i ? r.replace(/^\[/, "[J&M: ") : r)).join(", ")}`;
 };
 
 // [short display name, url, full title]. The short name is what appears in the
@@ -225,20 +226,20 @@ const rawSchedule: ScheduleRow[] = [
   { week: 6, date: "Wed 09/30", topic: "RNNs", materials: readings(jm(14)), slides: "/slides/wm_fa26_cs680_nlp_lec11_rnn.pdf" },
   { week: 6, date: "Fri 10/02", topic: "Seq2Seq & Attention", materials: material(readings(jm(14), jm(7)), papers(P.seq2seq, P.bahdanau)), slides: "/slides/wm_fa26_cs680_nlp_lec12_seq2seq_attn.pdf" },
 
-  { week: 7, date: "Mon 10/05", topic: "Language Generation (1)", materials: material(readings(jm(13)), papers(P.bleu)), slides: "/slides/wm_fa26_cs680_nlp_lec13_generation.pdf" },
-  { week: 7, date: "Wed 10/07", topic: "Language Generation (2)", materials: material(readings(jm(13)), notebook("/notebooks/csci680_nlp_decoding_strategies.ipynb")), slides: "/slides/wm_fa26_cs680_nlp_lec14_generation.pdf" },
+  { week: 7, date: "Mon 10/05", topic: "Language Generation (1)", materials: material(readings(jm(13), jm(7, "7.6")), papers(P.bleu)), slides: "/slides/wm_fa26_cs680_nlp_lec13_generation.pdf" },
+  { week: 7, date: "Wed 10/07", topic: "Language Generation (2)", materials: material(readings(jm(13), jm(7, "7.6")), notebook("/notebooks/csci680_nlp_decoding_strategies.ipynb")), slides: "/slides/wm_fa26_cs680_nlp_lec14_generation.pdf" },
   { week: 7, date: "Fri 10/09", topic: "No Class - Fall Break" },
 
   { week: 8, date: "Mon 10/12", topic: "Transformers (1)", materials: readings(jm(7), paper(P.attention)), slides: "/slides/wm_fa26_cs680_nlp_lec15_transformers1.pdf" },
-  { week: 8, date: "Wed 10/14", topic: "Transformers (2)", materials: readings(jm(7), paper(P.attention)) },
-  { week: 8, date: "Fri 10/16", topic: "Transformer LMs", planningTopic: "Transformer LMs: Architectures & Tokenization, BERT & GPT", materials: material(readings(jm(1), jm(9), jm(2), jm(7)), papers(P.bpe, P.bert, P.gpt1, P.nucleus)) },
+  { week: 8, date: "Wed 10/14", topic: "Quiz 2" },
+  { week: 8, date: "Fri 10/16", topic: "Transformers (2)", materials: readings(jm(7), paper(P.attention)), slides: "/slides/wm_fa26_cs680_nlp_lec16_transformers2.pdf" },
 
-  { week: 9, date: "Mon 10/19", topic: "Pre-Training LLMs", materials: material(readings(jm(1), jm(7)), papers(P.llama3)) },
-  { week: 9, date: "Wed 10/21", topic: "Guest Lecture: Scaling Laws & Optimization", materials: material(readings(jm(1)), papers(P.scaling)) },
+  { week: 9, date: "Mon 10/19", topic: "Transformer LMs & Pre-Training", planningTopic: "Transformer LMs & Pre-Training: Architectures & Tokenization, BERT & GPT, Pre-Training LLMs", materials: material(readings(jm(7), jm(9)), papers(P.bpe, P.bert, P.gpt1, P.nucleus, P.llama3)) },
+  { week: 9, date: "Wed 10/21", topic: "Guest Lecture: Scaling Laws & Optimization", materials: readings(paper(P.scaling)) },
   { week: 9, date: "Fri 10/23", topic: "Post-Training", planningTopic: "Post-Training: (RLHF, Instruction-Tuning, SFT, DPO)", materials: material(readings(jm(8)), papers(P.instructgpt, P.dpo, P.r1)) },
 
-  { week: 10, date: "Mon 10/26", topic: "Fine-Tuning, Efficient Adaptation", planningTopic: "Fine-Tuning, Transfer Learning, Efficient Adaptation (PEFT, LORA)", materials: material(readings(jm(8)), papers(P.lora, P.adapters)) },
-  { week: 10, date: "Wed 10/28", topic: "Prompting, In-Context Learning, and Chain-of-Thought", materials: material(readings(jm(1), jm(10)), papers(P.gpt3, P.cot)) },
+  { week: 10, date: "Mon 10/26", topic: "Fine-Tuning, Efficient Adaptation", planningTopic: "Fine-Tuning, Transfer Learning, Efficient Adaptation (PEFT, LORA)", materials: material(readings(jm(8), jm(9)), papers(P.lora, P.adapters)) },
+  { week: 10, date: "Wed 10/28", topic: "Prompting, In-Context Learning, and Chain-of-Thought", materials: material(readings(jm(10)), papers(P.gpt3, P.cot)) },
   { week: 10, date: "Fri 10/30", topic: "LLM Agents", planningTopic: "LLM Agents, Tool Use, RAG", materials: material(readings(jm(11)), papers(P.rag, P.react, P.toolformer)) },
 
   { week: 11, date: "Mon 11/02", topic: "Evaluating LLMs", materials: material(readings(jm(1)), papers(P.helm, P.mmlu, P.mauve)) },
@@ -270,7 +271,7 @@ const rawSchedule: ScheduleRow[] = [
  * Move this date forward as the semester progresses. Set it to "" to show
  * everything, or to the first session to hide everything.
  */
-export const materialsVisibleThrough = "Wed 10/14";
+export const materialsVisibleThrough = "Fri 10/30";
 
 /**
  * Suggested papers are revealed on their own schedule, always at or behind
