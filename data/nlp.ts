@@ -124,6 +124,11 @@ const papers = (...ps: Paper[]) => `${PAPERS_LABEL} ${ps.map(paper).join(", ")}`
 // link on its own line, under the readings.
 const notebook = (file: string) => `[Notebook](${file})`;
 
+// Papers students may read but are not required to, on their own "Optional:"
+// line under the readings. Unlike suggested papers, these are shown as soon as
+// the row's readings are.
+const optional = (...ps: Paper[]) => `Optional: ${ps.map(paper).join(", ")}`;
+
 // The renderer turns each run of "- " lines into its own <ul>, so the two
 // groups stay visually separate. See app/nlp/page.tsx.
 const material = (...parts: string[]) => parts.join("\n");
@@ -230,11 +235,11 @@ const rawSchedule: ScheduleRow[] = [
   { week: 7, date: "Wed 10/07", topic: "Language Generation (2)", materials: material(readings(jm(13), jm(7, "7.6")), notebook("/notebooks/csci680_nlp_decoding_strategies.ipynb")), slides: "/slides/wm_fa26_cs680_nlp_lec14_generation.pdf" },
   { week: 7, date: "Fri 10/09", topic: "No Class - Fall Break" },
 
-  { week: 8, date: "Mon 10/12", topic: "Transformers (1)", materials: readings(jm(7), paper(P.attention)), slides: "/slides/wm_fa26_cs680_nlp_lec15_transformers1.pdf" },
+  { week: 8, date: "Mon 10/12", topic: "Transformers (1)", materials: material(readings(jm(7)), optional(P.attention)), slides: "/slides/wm_fa26_cs680_nlp_lec15_transformers1.pdf" },
   { week: 8, date: "Wed 10/14", topic: "Quiz 2" },
-  { week: 8, date: "Fri 10/16", topic: "Transformers (2)", materials: readings(jm(7), paper(P.attention)), slides: "/slides/wm_fa26_cs680_nlp_lec16_transformers2.pdf" },
+  { week: 8, date: "Fri 10/16", topic: "Transformers (2)", materials: material(readings(jm(7)), optional(P.attention)), slides: "/slides/wm_fa26_cs680_nlp_lec16_transformers2.pdf" },
 
-  { week: 9, date: "Mon 10/19", topic: "Transformer LMs & Pre-Training", planningTopic: "Transformer LMs & Pre-Training: Architectures & Tokenization, BERT & GPT, Pre-Training LLMs", materials: material(readings(jm(7), jm(9)), papers(P.bpe, P.bert, P.gpt1, P.nucleus, P.llama3)) },
+  { week: 9, date: "Mon 10/19", topic: "Transformer LMs & Pre-Training", planningTopic: "Transformer LMs & Pre-Training: Architectures & Tokenization, BERT & GPT, Pre-Training LLMs", materials: material(readings(jm(7), jm(9)), optional(P.bert, P.gpt1), papers(P.bpe, P.nucleus, P.llama3)), slides: "/slides/wm_fa26_cs680_nlp_lec17_pretraining.pdf" },
   { week: 9, date: "Wed 10/21", topic: "Guest Lecture: Scaling Laws & Optimization", materials: readings(paper(P.scaling)) },
   { week: 9, date: "Fri 10/23", topic: "Post-Training", planningTopic: "Post-Training: (RLHF, Instruction-Tuning, SFT, DPO)", materials: material(readings(jm(8)), papers(P.instructgpt, P.dpo, P.r1)) },
 
