@@ -18,13 +18,14 @@ export function toHtml(markdown: string) {
     .filter((line) => line.trim())
     .map((line) =>
       line
-        // [text](url) or [text](url "hover title")
+        // [text](url) or [text](url "hover title"). Links don't wrap internally,
+        // so a two-word paper name moves to the next line whole.
         .replace(
           /\[([^\]]+)\]\(([^\s)]+)(?:\s+"([^"]*)")?\)/g,
           (_m, text: string, url: string, title?: string) =>
             `<a href="${url}" target="_blank" rel="noopener noreferrer"` +
             `${title ? ` title="${title}"` : ""}` +
-            ` class="text-accent underline hover:text-accent/80">${text}</a>`
+            ` class="text-accent underline hover:text-accent/80 whitespace-nowrap">${text}</a>`
         )
     )
     .map((line) => `<div class="mb-1 last:mb-0">${line}</div>`)

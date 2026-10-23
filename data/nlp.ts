@@ -124,13 +124,17 @@ const papers = (...ps: Paper[]) => `${PAPERS_LABEL} ${ps.map(paper).join(", ")}`
 // link on its own line, under the readings.
 const notebook = (file: string) => `[Notebook](${file})`;
 
+// Handout PDFs live in public/handouts/. Rendered as a bare link, named after the
+// handout, on its own line under the readings.
+const handout = (title: string, file: string) => `[${title}](${file})`;
+
 // Papers students may read but are not required to, on their own "Optional:"
 // line under the readings. Unlike suggested papers, these are shown as soon as
 // the row's readings are.
 const optional = (...ps: Paper[]) => `Optional: ${ps.map(paper).join(", ")}`;
 
-// The renderer turns each run of "- " lines into its own <ul>, so the two
-// groups stay visually separate. See app/nlp/page.tsx.
+// Each part is its own line in the rendered cell. See toHtml in
+// components/ScheduleTable.tsx.
 const material = (...parts: string[]) => parts.join("\n");
 
 const P = {
@@ -180,6 +184,10 @@ const P = {
     "Measuring Massive Multitask Language Understanding"],
   arena: ["Chatbot Arena", "https://arxiv.org/abs/2403.04132",
     "Chatbot Arena: An Open Platform for Evaluating LLMs by Human Preference"],
+  llmJudge: ["LLM-as-a-Judge", "https://openreview.net/pdf?id=uccHPGDlao",
+    "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena"],
+  livebench: ["LiveBench", "https://openreview.net/forum?id=sKYHBTAxVa",
+    "LiveBench: A Challenging, Contamination-Limited LLM Benchmark"],
   rag: ["RAG", "https://arxiv.org/abs/2005.11401",
     "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"],
   react: ["ReAct", "https://arxiv.org/abs/2210.03629",
@@ -193,18 +201,34 @@ const P = {
     "Ethical and Social Risks of Harm from Language Models"],
   attnNotExpl: ["Attention is not Explanation", "https://aclanthology.org/N19-1357/",
     "Attention is not Explanation"],
+  attnNotNotExpl: ["Attention is not not Explanation", "https://aclanthology.org/D19-1002/",
+    "Attention is not not Explanation"],
   checklist: ["CheckList", "https://aclanthology.org/2020.acl-main.442/",
     "Beyond Accuracy: Behavioral Testing of NLP Models with CheckList"],
   crowspairs: ["CrowS-Pairs", "https://aclanthology.org/2020.emnlp-main.154/",
     "CrowS-Pairs: A Challenge Dataset for Measuring Social Biases in Masked Language Models"],
+  fairnessSurvey: ["Bias & Fairness Survey", "https://aclanthology.org/2024.cl-3.8/",
+    "Bias and Fairness in Large Language Models: A Survey"],
+  robustnessSurvey: ["Robustness Survey", "https://aclanthology.org/2022.naacl-main.339/",
+    "Measure and Improve Robustness in NLP Models: A Survey"],
+  selfInstruct: ["Self-Instruct", "https://aclanthology.org/2023.acl-long.754/",
+    "Self-Instruct: Aligning Language Models with Self-Generated Instructions"],
+  caa: ["Steering Llama 2", "https://aclanthology.org/2024.acl-long.828/",
+    "Steering Llama 2 via Contrastive Activation Addition"],
   dataShapley: ["Data Shapley", "https://arxiv.org/abs/1904.02868",
     "Data Shapley: Equitable Valuation of Data for Machine Learning"],
+  dataAttrSurvey: ["Data Attribution Survey", "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5451054",
+    "A Survey of Data Attribution: Methods, Applications, and Evaluation in the Era of Generative AI"],
   datasheets: ["Datasheets for Datasets", "https://arxiv.org/abs/1803.09010",
     "Datasheets for Datasets"],
   dolma: ["Dolma", "https://arxiv.org/abs/2402.00159",
     "Dolma: an Open Corpus of Three Trillion Tokens for Language Model Pretraining Research"],
   csShapley: ["CS-Shapley", "https://arxiv.org/abs/2211.06800",
     "CS-Shapley: Class-wise Shapley Values for Data Valuation in Classification"],
+  consentCrisis: ["Consent in Crisis", "https://proceedings.neurips.cc/paper_files/paper/2024/hash/c3738949a80306cc48a8ea8ba0560f9d-Abstract-Datasets_and_Benchmarks_Track.html",
+    "Consent in Crisis: The Rapid Decline of the AI Data Commons"],
+  diffAware: ["Difference Awareness", "https://aclanthology.org/2025.acl-long.341/",
+    "Fairness through Difference Awareness: Measuring Desired Group Discrimination in LLMs"],
 } as const satisfies Record<string, Paper>;
 
 const rawSchedule: ScheduleRow[] = [
@@ -239,25 +263,25 @@ const rawSchedule: ScheduleRow[] = [
   { week: 8, date: "Wed 10/14", topic: "Quiz 2" },
   { week: 8, date: "Fri 10/16", topic: "Transformers (2)", materials: material(readings(jm(7)), optional(P.attention)), slides: "/slides/wm_fa26_cs680_nlp_lec16_transformers2.pdf" },
 
-  { week: 9, date: "Mon 10/19", topic: "Transformer LMs & Pre-Training", planningTopic: "Transformer LMs & Pre-Training: Architectures & Tokenization, BERT & GPT, Pre-Training LLMs", materials: material(readings(jm(7), jm(9)), optional(P.bert, P.gpt1), papers(P.bpe, P.nucleus, P.llama3)), slides: "/slides/wm_fa26_cs680_nlp_lec17_pretraining.pdf" },
-  { week: 9, date: "Wed 10/21", topic: "Guest Lecture: Scaling Laws & Optimization", materials: readings(paper(P.scaling)) },
-  { week: 9, date: "Fri 10/23", topic: "Post-Training", planningTopic: "Post-Training: (RLHF, Instruction-Tuning, SFT, DPO)", materials: material(readings(jm(8)), papers(P.instructgpt, P.dpo, P.r1)) },
+  { week: 9, date: "Mon 10/19", topic: "Transformer LMs & Pretraining (1)", planningTopic: "Transformer LMs & Pretraining (1): Architectures & Tokenization, BERT & GPT, Pretraining LLMs", materials: material(readings(jm(7), jm(9)), optional(P.bert, P.gpt1), papers(P.bpe, P.nucleus, P.llama3)), slides: "/slides/wm_fa26_cs680_nlp_lec17_pretraining.pdf" },
+  { week: 9, date: "Wed 10/21", topic: "Guest Lecture: Scaling Laws & Optimization", materials: material(readings(paper(P.scaling)), handout("Suggested Readings and Repos", "/handouts/wm_fa26_cs680_nlp_scaling_readings_repos.pdf")) },
+  { week: 9, date: "Fri 10/23", topic: "Pretraining (2)", materials: material(readings(jm(7), jm(9)), optional(P.bert, P.gpt1), papers(P.bpe, P.nucleus, P.llama3)), slides: "/slides/wm_fa26_cs680_nlp_lec18_pretraining.pdf" },
 
-  { week: 10, date: "Mon 10/26", topic: "Fine-Tuning, Efficient Adaptation", planningTopic: "Fine-Tuning, Transfer Learning, Efficient Adaptation (PEFT, LORA)", materials: material(readings(jm(8), jm(9)), papers(P.lora, P.adapters)) },
-  { week: 10, date: "Wed 10/28", topic: "Prompting, In-Context Learning, and Chain-of-Thought", materials: material(readings(jm(10)), papers(P.gpt3, P.cot)) },
+  { week: 10, date: "Mon 10/26", topic: "Post-Training & Prompting", planningTopic: "Post-Training & Prompting: RLHF, Instruction-Tuning, SFT, DPO, In-Context Learning, Chain-of-Thought", materials: material(readings(jm(8), jm(10)), papers(P.instructgpt, P.dpo, P.r1, P.gpt3, P.cot)) },
+  { week: 10, date: "Wed 10/28", topic: "Fine-Tuning, Efficient Adaptation", planningTopic: "Fine-Tuning, Transfer Learning, Efficient Adaptation (PEFT, LORA)", materials: material(readings(jm(8), jm(9)), papers(P.lora, P.adapters)) },
   { week: 10, date: "Fri 10/30", topic: "LLM Agents", planningTopic: "LLM Agents, Tool Use, RAG", materials: material(readings(jm(11)), papers(P.rag, P.react, P.toolformer)) },
 
-  { week: 11, date: "Mon 11/02", topic: "Evaluating LLMs", materials: material(readings(jm(1)), papers(P.helm, P.mmlu, P.mauve)) },
-  { week: 11, date: "Wed 11/04", topic: "Responsible Language Modeling", planningTopic: "Responsible Language Modeling (Harms & Risks)", materials: material(readings(jm(1)), papers(P.parrots, P.risks)) },
-  { week: 11, date: "Fri 11/06", topic: "Paper Discussion 1" },
+  { week: 11, date: "Mon 11/02", topic: "Project Work Day" },
+  { week: 11, date: "Wed 11/04", topic: "Evaluating LLMs", materials: material(readings(jm(1, "1.9")), optional(P.checklist, P.mauve, P.helm, P.mmlu)) },
+  { week: 11, date: "Fri 11/06", topic: "Paper Discussion 1", materials: readings(paper(P.livebench), paper(P.llmJudge)) },
 
-  { week: 12, date: "Mon 11/09", topic: "Project Work Day" },
-  { week: 12, date: "Wed 11/11", topic: "Interpretability", materials: material(readings(jm(10)), papers(P.attnNotExpl)) },
-  { week: 12, date: "Fri 11/13", topic: "Paper Discussion 2" },
+  { week: 12, date: "Mon 11/09", topic: "Responsible Language Modeling", planningTopic: "Responsible Language Modeling (Harms & Risks)", materials: material(readings(jm(1, "1.10")), optional(P.parrots)) },
+  { week: 12, date: "Wed 11/11", topic: "Robustness & Fairness", materials: optional(P.fairnessSurvey, P.robustnessSurvey) },
+  { week: 12, date: "Fri 11/13", topic: "Paper Discussion 2", materials: readings(paper(P.consentCrisis), paper(P.diffAware)) },
 
-  { week: 13, date: "Mon 11/16", topic: "Robustness & Fairness", materials: papers(P.checklist, P.crowspairs) },
-  { week: 13, date: "Wed 11/18", topic: "Data-Centric NLP", materials: papers(P.dataShapley, P.dolma) },
-  { week: 13, date: "Fri 11/20", topic: "Paper Discussion 3" },
+  { week: 13, date: "Mon 11/16", topic: "Interpretability", materials: material(readings(jm(10)), optional(P.attnNotExpl, P.attnNotNotExpl)) },
+  { week: 13, date: "Wed 11/18", topic: "Data-Centric NLP", materials: optional(P.dataAttrSurvey, P.datasheets, P.dolma) },
+  { week: 13, date: "Fri 11/20", topic: "Paper Discussion 3", materials: readings(paper(P.selfInstruct), paper(P.caa)) },
 
   { week: 14, date: "Mon 11/23", topic: "Outro" },
   { week: 14, date: "Wed 11/25", topic: "No Class - Thanksgiving Break" },
@@ -276,7 +300,7 @@ const rawSchedule: ScheduleRow[] = [
  * Move this date forward as the semester progresses. Set it to "" to show
  * everything, or to the first session to hide everything.
  */
-export const materialsVisibleThrough = "Fri 10/30";
+export const materialsVisibleThrough = "Fri 11/20";
 
 /**
  * Suggested papers are revealed on their own schedule, always at or behind
