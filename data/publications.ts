@@ -19,6 +19,7 @@ export const publications: Publication[] = [
     authors: "Stephanie Schoch, Sidhya Pathak, Yangfeng Ji",
     venue: "(To Appear) Findings of the Association for Computational Linguistics: EMNLP 2026",
     year: 2026,
+    link: "/schochetal_emnlp2026_pram.pdf",
   },
   {
     title: "The Good, the Bad, and the Debatable: A Survey on the Impacts of Data for In-Context Learning",
