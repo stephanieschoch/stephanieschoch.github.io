@@ -74,7 +74,7 @@ export const deadlines: DeadlineRow[] = [
   { week: 9, deadline: "Homework 2", released: "Wed 09/30", date: "Fri 10/23", time: "11:59 PM" },
   { week: 10, deadline: "Quiz 3: LLMs", date: "Fri 10/30", time: "10:00 AM" },
   { week: 11, deadline: "Project Progress Report", date: "Mon 11/02", time: "11:59 PM" },
-  { week: 13, deadline: "Homework 3", released: "Mon 10/26", date: "Fri 11/20", time: "11:59 PM" },
+  { week: 13, deadline: "Homework 3", released: "Mon 11/02", date: "Fri 11/20", time: "11:59 PM" },
   { week: 14, deadline: "Project Final Report", date: "Tue 11/24", time: "11:59 PM" },
 ];
 
@@ -267,9 +267,9 @@ const rawSchedule: ScheduleRow[] = [
   { week: 9, date: "Wed 10/21", topic: "Guest Lecture: Scaling Laws & Optimization", materials: material(readings(paper(P.scaling)), handout("Suggested Readings and Repos", "/handouts/wm_fa26_cs680_nlp_scaling_readings_repos.pdf")) },
   { week: 9, date: "Fri 10/23", topic: "Pretraining (2)", materials: material(readings(jm(7), jm(9)), optional(P.bert, P.gpt1), papers(P.bpe, P.nucleus, P.llama3)), slides: "/slides/wm_fa26_cs680_nlp_lec18_pretraining.pdf" },
 
-  { week: 10, date: "Mon 10/26", topic: "Post-Training & Prompting", planningTopic: "Post-Training & Prompting: RLHF, Instruction-Tuning, SFT, DPO, In-Context Learning, Chain-of-Thought", materials: material(readings(jm(8), jm(10)), papers(P.instructgpt, P.dpo, P.r1, P.gpt3, P.cot)) },
-  { week: 10, date: "Wed 10/28", topic: "Fine-Tuning, Efficient Adaptation", planningTopic: "Fine-Tuning, Transfer Learning, Efficient Adaptation (PEFT, LORA)", materials: material(readings(jm(8), jm(9)), papers(P.lora, P.adapters)) },
-  { week: 10, date: "Fri 10/30", topic: "LLM Agents", planningTopic: "LLM Agents, Tool Use, RAG", materials: material(readings(jm(11)), papers(P.rag, P.react, P.toolformer)) },
+  { week: 10, date: "Mon 10/26", topic: "Instruction-Tuning", materials: readings(jm(8, "8.1")), slides: "/slides/wm_fa26_cs680_nlp_lec18_posttraining.pdf" },
+  { week: 10, date: "Wed 10/28", topic: "Post-Training & Prompting", planningTopic: "Post-Training & Prompting: RLHF, Instruction-Tuning, SFT, DPO, In-Context Learning, Chain-of-Thought", materials: material(readings(jm(8), jm(10)), papers(P.instructgpt, P.dpo, P.r1, P.gpt3, P.cot)), slides: "/slides/wm_fa26_cs680_nlp_lec19_prompting.pdf" },
+  { week: 10, date: "Fri 10/30", topic: "Quiz 3" },
 
   { week: 11, date: "Mon 11/02", topic: "Project Work Day" },
   { week: 11, date: "Wed 11/04", topic: "Evaluating LLMs", materials: material(readings(jm(1, "1.9")), optional(P.checklist, P.mauve, P.helm, P.mmlu)) },
