@@ -272,7 +272,7 @@ const rawSchedule: ScheduleRow[] = [
   { week: 10, date: "Fri 10/30", topic: "Quiz 3" },
 
   { week: 11, date: "Mon 11/02", topic: "Project Work Day" },
-  { week: 11, date: "Wed 11/04", topic: "Evaluating LLMs", materials: material(readings(jm(1, "1.9")), optional(P.checklist, P.mauve, P.helm, P.mmlu)) },
+  { week: 11, date: "Wed 11/04", topic: "Evaluating LLMs", materials: material(readings(jm(1, "1.9")), optional(P.checklist, P.mauve, P.helm, P.mmlu)), slides: "/slides/wm_fa26_cs680_nlp_lec20_evaluation.pdf" },
   { week: 11, date: "Fri 11/06", topic: "Paper Discussion 1", materials: readings(paper(P.livebench), paper(P.llmJudge)) },
 
   { week: 12, date: "Mon 11/09", topic: "Responsible Language Modeling", planningTopic: "Responsible Language Modeling (Harms & Risks)", materials: material(readings(jm(1, "1.10")), optional(P.parrots)) },
