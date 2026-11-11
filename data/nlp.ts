@@ -276,7 +276,7 @@ const rawSchedule: ScheduleRow[] = [
   { week: 11, date: "Fri 11/06", topic: "Paper Discussion 1", materials: readings(paper(P.livebench), paper(P.llmJudge)) },
 
   { week: 12, date: "Mon 11/09", topic: "Responsible Language Modeling", planningTopic: "Responsible Language Modeling (Harms & Risks)", materials: material(readings(jm(1, "1.10")), optional(P.parrots)), slides: "/slides/wm_fa26_cs680_nlp_lec21_responsiblelm.pdf" },
-  { week: 12, date: "Wed 11/11", topic: "Robustness & Fairness", materials: optional(P.fairnessSurvey, P.robustnessSurvey) },
+  { week: 12, date: "Wed 11/11", topic: "Robustness & Fairness", materials: optional(P.fairnessSurvey, P.robustnessSurvey), slides: "/slides/wm_fa26_cs680_nlp_lec22_robustfair.pdf" },
   { week: 12, date: "Fri 11/13", topic: "Paper Discussion 2", materials: readings(paper(P.consentCrisis), paper(P.diffAware)) },
 
   { week: 13, date: "Mon 11/16", topic: "Interpretability", materials: material(readings(jm(10)), optional(P.attnNotExpl, P.attnNotNotExpl)) },
