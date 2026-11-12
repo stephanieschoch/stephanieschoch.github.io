@@ -75,7 +75,7 @@ export const deadlines: DeadlineRow[] = [
   { week: 10, deadline: "Quiz 3: LLMs", date: "Fri 10/30", time: "10:00 AM" },
   { week: 11, deadline: "Project Progress Report", date: "Mon 11/02", time: "11:59 PM" },
   { week: 13, deadline: "Homework 3", released: "Mon 11/02", date: "Fri 11/20", time: "11:59 PM" },
-  { week: 14, deadline: "Project Final Report", date: "Tue 11/24", time: "11:59 PM" },
+  { week: 16, deadline: "Project Final Report", date: "Mon 12/07", time: "11:59 PM" },
 ];
 
 export interface Resource {
